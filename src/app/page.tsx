@@ -72,9 +72,9 @@ export default function Home() {
           <ReactLogo /> */}
           <ProfileImage />
           <p className="dark:text-default-500 indent-8 text-2xl my-8 text-center font-mono">
-            I'm Maung Shine, a frontend and full-stack developer passionate about crafting immersive digital
+            I&apos;m Maung Shine, a frontend and full-stack developer passionate about crafting immersive digital
             experiences. With expertise in React and Next.js, I bring creativity and precision to every project I touch.
-            Let's build something amazing together.
+            Let&apos;s build something amazing together.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="grid grid-rows-2 col-span-1 w-full gap-4">
@@ -82,7 +82,7 @@ export default function Home() {
               <article className="flex flex-col bg-white/30 backdrop-blur-sm gap-4 dark:bg-[#080808] dark:text-default-500 border items-center dark:border-default-100 rounded-md p-4">
                 <h3 className="font-semibold text-center inline-block">My Educational Background</h3>
                 <p className="indent-4 text-sm">
-                  I sudied Maritme Technology at Myanmar Mercantile Marine College. As I did't have computer science background,
+                  I sudied Maritme Technology at Myanmar Mercantile Marine College. As I did&apos;t have computer science background,
                   I had to learn to code through online courses Like CS50, and local programming courses and web development training.
                   Since I strongly believed in learning by getting my hands drity with code, I built many projects on my own. Please
                   check them out at <Link href='/projects' className="hover:border-b-2 hover:border-secondary-500 text-primary-500">Projects</Link> page.
@@ -91,7 +91,7 @@ export default function Home() {
               <article className="flex flex-col bg-white/30 backdrop-blur-sm gap-4 dark:bg-[#080808] dark:text-default-500 border items-center dark:border-default-100 rounded-md p-4">
                 <h3 className="font-semibold text-center inline-block">Areas to be explored in future</h3>
                 <p className="indent-4 text-sm">
-                  I'm interested in learning and developing Generative AI application in the future in my spare time. And another skill that I'm aming to pursue in the future is developing 3D models and animations.
+                  I&apos;m interested in learning and developing Generative AI application in the future in my spare time. And another skill that I&apos;m aming to pursue in the future is developing 3D models and animations.
                 </p>
               </article>
             </div>

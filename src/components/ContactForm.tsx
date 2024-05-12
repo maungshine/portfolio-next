@@ -49,6 +49,11 @@ const ContactForm = () => {
                         isInvalid={!!state.errors.subject}
                         errorMessage={state.errors.subject?.join(', ')}
                     />
+                    {state.errors._form && <p className="border border-danger-400 bg-danger-200 text-danger-600 rounded-md py-4 px-8">
+
+                        {state.errors._form}
+
+                    </p>}
                     <SubmitButton />
 
                 </form>

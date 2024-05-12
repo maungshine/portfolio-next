@@ -15,7 +15,8 @@ type ContactFormState = {
         email?: string[],
         subject?: string[],
         _form?: string[]
-    }
+    },
+    success?: string[]
 }
 
 export const saveEnquiry = async (formState: ContactFormState, formData: FormData): Promise<ContactFormState> => {
@@ -52,5 +53,5 @@ export const saveEnquiry = async (formState: ContactFormState, formData: FormDat
 
     console.log(result.data)
 
-    return { errors: {} }
+    return { errors: {}, success: ['I received your message. I will reply to you asap!'] }
 }

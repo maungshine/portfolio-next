@@ -35,10 +35,10 @@ const ProfileImage = () => {
                     <div className="p-8 border-2 dark:border-primary-300 border-cyan-300 rounded-l-xl rounded-r-[50%]  relative">
                         <GiSpanner className="text-4xl absolute -left-4 bottom-[50%] text-rose-400" />
                         <Image
-                            src="/maung-shine.jpg"
+                            src="/maung-shine.png"
                             width={200}
                             height={200}
-                            className="rounded-full aspect-square object-cover"
+                            className="rounded-r-[50%] rounded-tl-3xl rounded-bl-3xl min-w-[100px] min-h-[100px] aspect-square object-cover"
                         />
                         <div className="p-4 border border-neutral-300 rounded-md flex flex-col gap-2 justify-center items-center absolute top-[110%] md:top-[50%] md:bottom-[50%] -bottom-[20%] translate-y-[-50%] -left-[40%] md:-left-[65%] text-xs w-[160px] md:w-[200px] h-[100px] md:h-[200px] z-10 md:text-sm bg-white/30 dark:bg-black/30 dark:border-default-100 backdrop-blur-sm">
                             <p className="dark:text-default-500">Hi 👋, Welcome</p>

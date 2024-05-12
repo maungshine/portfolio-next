@@ -57,7 +57,8 @@ const NavBar = () => {
                         <Link
 
                             className="w-full"
-                            href="#"
+                            color="foreground"
+                            href={item.url}
                             size="lg"
                         >
                             {item.name}

@@ -16,6 +16,11 @@ const ContactForm = () => {
             <div className="h-full w-full flex-col gap-8 justify-center flex">
                 <h2 className="text-2xl md:text-4xl font">Enquiry me about work</h2>
                 <form action={action} className="w-full grid md:grid-cols-2 gap-4 max-w-[600px]">
+                    {state.success && <p className="border md:col-span-2 border-success-400 bg-success-200 text-success-600 rounded-md py-4 px-8">
+
+                        {state.success}
+
+                    </p>}
                     <Input
                         label="Name"
                         name="name"

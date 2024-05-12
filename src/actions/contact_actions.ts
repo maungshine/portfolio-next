@@ -1,6 +1,7 @@
 "use server";
 import { z } from 'zod';
 import { db } from '../../prisma/db';
+import { revalidatePath } from 'next/cache';
 
 
 const ContactFormSchema = z.object({
@@ -52,6 +53,7 @@ export const saveEnquiry = async (formState: ContactFormState, formData: FormDat
     }
 
     console.log(result.data)
+
 
     return { errors: {}, success: ['I received your message. I will reply to you asap!'] }
 }

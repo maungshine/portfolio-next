@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma deploy migrate"
+    "postinstall": "prisma migrate deploy"
   },
   "dependencies": {
     "@nextui-org/react": "^2.3.6",

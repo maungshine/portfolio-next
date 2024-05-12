@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* [data-theme="light"]:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 199, 210, 254;
+  --background-end-rgb: 199, 210, 254;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */

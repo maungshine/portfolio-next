@@ -17,13 +17,13 @@ const Footer = () => {
                 </Link>
             </div>
             <div className="flex justify-center gap-2">
-                <Link href="#">
+                <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_balnk">
                     <AiFillLinkedin className="text-2xl dark:text-default-500" />
                 </Link>
-                <Link href="#">
+                <Link href="https://github.com/maungshine" target="_blank">
                     <AiFillGithub className="text-2xl dark:text-default-500" />
                 </Link>
-                <Link href="#">
+                <Link href="mailto: shinekoko1276@gmail.com">
                     <AiFillMail className="text-2xl dark:text-default-500" />
                 </Link>
             </div>

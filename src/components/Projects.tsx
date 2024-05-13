@@ -58,6 +58,14 @@ const projects = [
                     I used Python, Django, CSS, Html`,
         github_url: 'https://github.com/maungshine/commerce-101',
         demo_url: null,
+    },
+    {
+        id: '6',
+        img_url: '/shune-portfolio.png',
+        title: 'Porfolio Website With Wordpress',
+        description: `This is a portfolio website to showcase skills, experiences, education and blog. I used wordpress for this project.`,
+        demo_url: 'https://shunelaithida.site',
+        github_url: null,
     }
 ]
 

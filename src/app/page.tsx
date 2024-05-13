@@ -72,7 +72,7 @@ export default function Home() {
           {/* <NextLogo />
           <ReactLogo /> */}
           <ProfileImage />
-          <p className="dark:text-default-500 indent-8 text-2xl my-8 text-center font-mono">
+          <p className="dark:text-default-500 indent-8 md:text-2xl text-xl my-8 text-center font-mono">
             I&apos;m Maung Shine, a frontend and full-stack developer passionate about crafting software that is useful, yet apealing in visual
             using React and Nextjs.
           </p>
@@ -80,7 +80,7 @@ export default function Home() {
             <div className="grid grid-rows-2 col-span-1 w-full gap-4">
 
               <article className="flex flex-col bg-white/30 backdrop-blur-sm gap-4 dark:bg-[#080808] dark:text-default-500 border items-center dark:border-default-100 rounded-md p-4">
-                <h3 className="font-semibold text-center inline-block text-2xl font-serif">Working Experience</h3>
+                <h3 className="font-semibold text-center inline-block text-xl md:text-2xl font-serif">Working Experience</h3>
 
 
                 <p className="text-sm mt-8 self-start">Web Developer Training And Internship</p>
@@ -91,16 +91,16 @@ export default function Home() {
 
               </article>
               <article className="flex flex-col bg-white/30 backdrop-blur-sm gap-4 dark:bg-[#080808] dark:text-default-500 border items-center dark:border-default-100 rounded-md p-4">
-                <h3 className="font-semibold text-center inline-block text-2xl font-serif">Areas to be explored in future</h3>
+                <h3 className="font-semibold text-center inline-block text-xl md:text font-serif">Areas to be explored in future</h3>
                 <p className="mt-8 text-sm">
                   I&apos;m interested in learning and developing Generative AI application in the future in my spare time. And another skill that I&apos;m aming to pursue in the future is developing 3D models and animations.
                 </p>
               </article>
             </div>
             <article className="flex flex-col bg-white/30 backdrop-blur-sm gap-4 dark:bg-[#080808] dark:text-default-500 border dark:border-default-100 rounded-md p-4">
-              <h3 className="font-semibold text-center inline-block text-2xl font-serif">Languages and Frameworks</h3>
+              <h3 className="font-semibold text-center inline-block text-xl md:text font-serif">Languages and Frameworks</h3>
               <div className="text-sm space-y-8 mt-8">
-                <div className="space-y-2 text-sm border dark:border-default-200 p-4 rounded-md dark:bg-black/30 backdrop-blur-sm">
+                <div className="space-y-4 text-sm border dark:border-default-200 p-4 rounded-md dark:bg-black/30 backdrop-blur-sm">
                   <h3 className="font-semibold text">Languages</h3>
                   <ul className="flex gap-2 shrink-0 flex-wrap">
                     {languages.map((lang) => {
@@ -109,7 +109,7 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <div className="flex flex-col gap-2 text-sm border dark:border-default-200 p-4 rounded-md dark:bg-black/30 backdrop-blur-sm">
+                <div className="flex flex-col gap-4 text-sm border dark:border-default-200 p-4 rounded-md dark:bg-black/30 backdrop-blur-sm">
                   <h3 className="font-semibold">Frameworks and Libraries</h3>
                   <ul className="flex gap-2 shrink-0 flex-wrap">
                     {frameworks.map((lang) => {
@@ -118,7 +118,7 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <div className="flex flex-col gap-2 text-sm border dark:border-default-200 p-4 rounded-md dark:bg-black/30 backdrop-blur-sm">
+                <div className="flex flex-col gap-4 text-sm border dark:border-default-200 p-4 rounded-md dark:bg-black/30 backdrop-blur-sm">
                   <h3 className="font-semibold">CMS</h3>
                   <ul className="flex gap-2 shrink-0 flex-wrap">
                     {cms.map((lang) => {
@@ -130,7 +130,7 @@ export default function Home() {
               </div>
             </article>
             <article className="flex col-span-1 md:col-span-2 bg-white/30 backdrop-blur-sm flex-col gap-4 dark:bg-[#080808] dark:text-default-500 border items-center dark:border-default-100 rounded-md p-8">
-              <h3 className="font-semibold text-center inline-block text-2xl font-serif">Diploma and Certificates</h3>
+              <h3 className="font-semibold text-center inline-block text-xl md:text font-serif">Diploma and Certificates</h3>
               <div className="flex justify-start w-full">
                 <Timeline timelineElements={certificates} />
               </div>

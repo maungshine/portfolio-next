@@ -27,6 +27,9 @@ const Footer = () => {
                     <AiFillMail className="text-2xl dark:text-default-500 text-default-800" />
                 </Link>
             </div>
+            <div className="flex justify-center text-xs">
+                <p>Copyright &copy; {new Date().getFullYear()}. All rights reserved by Maung Shine</p>
+            </div>
         </footer>
     )
 }

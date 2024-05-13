@@ -21,10 +21,10 @@ const Footer = () => {
                     <AiFillLinkedin className="text-2xl text-default-50 dark:text-default-500" />
                 </Link>
                 <Link href="https://github.com/maungshine" target="_blank">
-                    <AiFillGithub className="text-2xl dark:text-default-500 text-default-50" />
+                    <AiFillGithub className="text-2xl dark:text-default-500 text-default-800" />
                 </Link>
                 <Link href="mailto: shinekoko1276@gmail.com">
-                    <AiFillMail className="text-2xl dark:text-default-500 text-default-50" />
+                    <AiFillMail className="text-2xl dark:text-default-500 text-default-800" />
                 </Link>
             </div>
         </footer>

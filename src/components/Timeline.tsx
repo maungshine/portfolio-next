@@ -11,7 +11,7 @@ const Timeline = ({ timelineElements }: {
         <div className='flex flex-col w-full p-8'>
             {timelineElements.map((element) => (
                 <div className="grid grid-cols-2 relative" key={element.id}>
-                    <div className="p-8 flex border-r dark:border-slate-600 items-center justify-end">
+                    <div className="px-2 py-8 md:p-8 flex border-r dark:border-slate-600 items-center justify-end">
                         <p className="text-sm">
                             {element.year}
                         </p>

@@ -37,6 +37,7 @@ const certificates = [
 
 const languages = [
   'Javascript',
+  'TypeScript',
   'Php',
   'Python',
   'Sql',

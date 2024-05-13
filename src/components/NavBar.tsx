@@ -46,7 +46,7 @@ const NavBar = () => {
                 )}
 
             </NavbarContent>
-            <NavbarContent justify="end" className="space-x-4">
+            <NavbarContent justify="end" className="space-x-2">
                 <NavbarItem>
                     <ThemeSwitcher />
                 </NavbarItem>

@@ -46,21 +46,22 @@ const NavBar = () => {
                 )}
 
             </NavbarContent>
-            <NavbarContent justify="end">
+            <NavbarContent justify="end" className="space-x-4">
                 <NavbarItem>
+                    <ThemeSwitcher />
+                </NavbarItem>
+                <NavbarItem className="flex items-center">
 
                     <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_balnk">
                         <AiFillLinkedin className="text-2xl text-default-50 dark:text-default-500" />
                     </Link>
-                </NavbarItem>
-                <NavbarItem>
+                </NavbarItem >
+                <NavbarItem className="flex items-center">
                     <Link href="https://github.com/maungshine" target="_blank">
                         <AiFillGithub className="text-2xl dark:text-default-500 text-default-50" />
                     </Link>
                 </NavbarItem>
-                <NavbarItem>
-                    <ThemeSwitcher />
-                </NavbarItem>
+
             </NavbarContent>
 
             <NavbarMenu>

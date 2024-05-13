@@ -53,7 +53,7 @@ const NavBar = () => {
                 <NavbarItem className="flex items-center">
 
                     <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_balnk">
-                        <AiFillLinkedin className="text-2xl text-default-50 dark:text-default-500" />
+                        <AiFillLinkedin className="text-2xl text-default-800 dark:text-default-500" />
                     </Link>
                 </NavbarItem >
                 <NavbarItem className="flex items-center">

@@ -10,33 +10,52 @@ import Presentation from "@/components/Presentation";
 const projects = [
     {
         id: '1',
+        img_url: '/ms-portfolio.png',
+        title: 'Portfolio Website',
+        description: `This porfolio website is to showcase my skills and projects. I will add blog later to this portfolio.
+                        I used React, Nextjs, Framermotion, Nextui, Tailwind, Prisma ORM and Postgres, and deployed to vercel.`,
+        demo_url: 'https://maungshine.site',
+        github_url: null,
+    },
+    {
+
+        id: '2',
         img_url: '/demo-rentx.png',
         title: 'RentX (Real Estate Rental Listing Website)',
-        description: " A property rental web application where users can list their properties, look for properties, save property they like and find properties on map ( leaflet map). I\'m still improving the app. Recently I added infinite scrolling for listings.",
+        description: ` A property rental web application where users can list their properties, 
+                        look for properties, save property they like and find properties on map ( leaflet map). 
+                        I am still improving the app. Recently I added infinite scrolling for listings.
+                        I used React, Nextjs, Nextui, Shadcn, Tailwind, Prisma ORM and Postgres for this project and deployed to vercel.`,
         demo_url: 'https://rentx-neon.vercel.app',
         github_url: null,
     },
     {
-        id: '2',
+        id: '3',
         img_url: '/demo-social-nextjs.png',
         title: 'Simple Nextjs Social App',
-        description: 'A social media app where users can make friends, create topics, make comments and reply on each others, and save posts. It includes authenticatioon with github oAuth.',
+        description: `A social media app where users can make friends, create topics, make
+                        comments and reply on each others, and save posts. It includes authenticatioon 
+                        with github oAuth. React, Nextjs, Tailwind, Prisma ORM and sqlite for this project. `,
         github_url: 'https://github.com/maungshine/discuss',
         demo_url: null,
     },
     {
-        id: '3',
+        id: '4',
         img_url: '/social-laravel.png',
         title: 'Simple laravel Social App',
-        description: 'A social media app where users can follow friends, create posts with photos, make comments and reply on each others, and like posts.',
+        description: `A social media app where users can follow friends, create posts with photos, 
+                        make comments and reply on each others, and like posts. I used PHP, Laravel, Bootstrap, Eloquent ORM and MySql 
+                        for this project`,
         github_url: 'https://github.com/maungshine/laravel-social',
         demo_url: null,
     },
     {
-        id: '4',
+        id: '5',
         img_url: '/django-ecommerce.png',
         title: 'Django Ecommerce Application',
-        description: 'An ecommerce application where users can sell their products using auctions. Buyers can participate in these autions and watch the ones the are interested in.',
+        description: `An ecommerce application where users can sell their products using auctions. 
+                    Buyers can participate in these autions and watch the ones the are interested in.
+                    I used Python, Django, CSS, Html`,
         github_url: 'https://github.com/maungshine/commerce-101',
         demo_url: null,
     }

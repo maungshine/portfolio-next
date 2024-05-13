@@ -18,7 +18,7 @@ const Project = ({
 }) => {
     return (
         <article className="grid gap-4 sm:grid-cols-12 dark:bg-default-50 border border-default-100 sm:max-h-[240px] rounded-md p-4 bg-white/30 backdrop-blur-sm">
-            <div className="sm:col-span-4">
+            <div className="sm:col-span-4 max-h-[200px]">
 
                 <Image src={img_url} width={400} height={200} classNames={
                     {

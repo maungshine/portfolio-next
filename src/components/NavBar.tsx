@@ -46,7 +46,7 @@ const NavBar = () => {
                 )}
 
             </NavbarContent>
-            <NavbarContent justify="end" className="space-x-2">
+            <NavbarContent justify="end" >
                 <NavbarItem>
                     <ThemeSwitcher />
                 </NavbarItem>
@@ -58,7 +58,7 @@ const NavBar = () => {
                 </NavbarItem >
                 <NavbarItem className="flex items-center">
                     <Link href="https://github.com/maungshine" target="_blank">
-                        <AiFillGithub className="text-2xl dark:text-default-500 text-default-50" />
+                        <AiFillGithub className="text-2xl dark:text-default-500 text-default-800" />
                     </Link>
                 </NavbarItem>
 

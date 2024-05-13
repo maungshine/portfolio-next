@@ -2,6 +2,7 @@
 import { NavbarContent, Navbar, NavbarMenuToggle, NavbarBrand, NavbarItem, Link, NavbarMenu, NavbarMenuItem } from "@nextui-org/react"
 import { useState } from "react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 
 const menuItems = [
@@ -46,6 +47,17 @@ const NavBar = () => {
 
             </NavbarContent>
             <NavbarContent justify="end">
+                <NavbarItem>
+
+                    <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_balnk">
+                        <AiFillLinkedin className="text-2xl text-default-50 dark:text-default-500" />
+                    </Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <Link href="https://github.com/maungshine" target="_blank">
+                        <AiFillGithub className="text-2xl dark:text-default-500 text-default-50" />
+                    </Link>
+                </NavbarItem>
                 <NavbarItem>
                     <ThemeSwitcher />
                 </NavbarItem>

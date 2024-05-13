@@ -13,7 +13,7 @@ const projects = [
         img_url: '/ms-portfolio.png',
         title: 'Portfolio Website',
         description: `This porfolio website is to showcase my skills and projects. I will add blog later to this portfolio.
-                        I used React, Nextjs, Framermotion, Nextui, Tailwind, Prisma ORM and Postgres, and deployed to vercel.`,
+                        I used TypeScript, React, Nextjs, Framermotion, Nextui, Tailwind, Prisma ORM and Postgres, and deployed to vercel.`,
         demo_url: 'https://maungshine.site',
         github_url: null,
     },
@@ -25,7 +25,7 @@ const projects = [
         description: ` A property rental web application where users can list their properties, 
                         look for properties, save property they like and find properties on map ( leaflet map). 
                         I am still improving the app. Recently I added infinite scrolling for listings.
-                        I used React, Nextjs, Nextui, Shadcn, Tailwind, Prisma ORM and Postgres for this project and deployed to vercel.`,
+                        I used TypeScript, React, Nextjs, Nextui, Shadcn, Tailwind, Prisma ORM and Postgres for this project and deployed to vercel.`,
         demo_url: 'https://rentx-neon.vercel.app',
         github_url: null,
     },
@@ -34,8 +34,8 @@ const projects = [
         img_url: '/demo-social-nextjs.png',
         title: 'Simple Nextjs Social App',
         description: `A social media app where users can make friends, create topics, make
-                        comments and reply on each others, and save posts. It includes authenticatioon 
-                        with github oAuth. React, Nextjs, Tailwind, Prisma ORM and sqlite for this project. `,
+                        comments and reply on each others, and save posts. It includes authentication 
+                        with github oAuth.I used TypeScript, React, Nextjs, Tailwind, Prisma ORM and sqlite for this project. `,
         github_url: 'https://github.com/maungshine/discuss',
         demo_url: null,
     },

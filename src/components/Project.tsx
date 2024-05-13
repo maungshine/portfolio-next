@@ -27,12 +27,12 @@ const Project = ({
                     }
                 } />
             </div>
-            <aside className="sm:col-span-8 pl-4">
+            <aside className="sm:col-span-8 pl-4 flex flex-col">
                 <h3 className="text-default-600 font-semibold">{title}</h3>
                 <p className="mt-4 font-light text-sm">
                     {description.slice(0, 100) + '...'}
                 </p>
-                <p className="flex justify-end mt-4 gap-4">
+                <div className="flex justify-end mt-auto gap-4">
                     {demo_url &&
                         <Button as={Link} href={demo_url} target="_blank" className="flex gap-2">
                             <span>Live Demo</span> <FiExternalLink />
@@ -44,7 +44,7 @@ const Project = ({
                         </Button>
                     }
 
-                </p>
+                </div>
             </aside>
         </article>
     )

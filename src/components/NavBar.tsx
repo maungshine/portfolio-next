@@ -41,7 +41,7 @@ const NavBar = () => {
                 {menuItems.map((item) =>
 
                     <NavbarItem key={item.name}>
-                        <Link color="foreground" href={item.url} className={`${pathname === item.url && 'border-b border-primary-500'} hover:border-b hover:border-primary-500`}>
+                        <Link color="foreground" href={item.url} className={`${pathname === item.url && 'border-b-2 border-primary-500'} hover:border-b hover:border-primary-500`}>
                             {item.name}
                         </Link>
                     </NavbarItem>

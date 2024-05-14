@@ -3,6 +3,7 @@ import { NavbarContent, Navbar, NavbarMenuToggle, NavbarBrand, NavbarItem, Link,
 import { useState } from "react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { usePathname } from "next/navigation";
 
 
 const menuItems = [
@@ -21,6 +22,7 @@ const menuItems = [
 ];
 
 const NavBar = () => {
+    const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white/40 backdrop-blur-sm dark:bg-black dark:backdrop-blur-none">
@@ -39,7 +41,7 @@ const NavBar = () => {
                 {menuItems.map((item) =>
 
                     <NavbarItem key={item.name}>
-                        <Link color="foreground" href={item.url}>
+                        <Link color="foreground" href={item.url} className={`${pathname === item.url && 'border-b border-primary-500'} hover:border-b hover:border-primary-500`}>
                             {item.name}
                         </Link>
                     </NavbarItem>

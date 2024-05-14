@@ -18,9 +18,9 @@ const Project = ({
 }) => {
     return (
         <article className="w-full grid gap-4 sm:grid-cols-12 dark:bg-default-50 border border-default-100 sm:max-h-[240px] rounded-md p-4 bg-white/30 backdrop-blur-sm">
-            <div className="sm:col-span-4 h-[240px] md:h-[200px]">
+            <div className="sm:col-span-4 h-[240px] sm:h-[200px]">
 
-                <Image src={img_url} width={600} height={400} classNames={
+                <Image src={img_url} width={600} height={600} classNames={
                     {
                         img: "rounded-md h-full w-full object-cover",
                         wrapper: "rounded-md h-full w-full",

@@ -17,19 +17,19 @@ const Project = ({
     github_url?: string | null
 }) => {
     return (
-        <article className="grid gap-4 sm:grid-cols-12 dark:bg-default-50 border border-default-100 sm:max-h-[240px] rounded-md p-4 bg-white/30 backdrop-blur-sm">
-            <div className="sm:col-span-4 h-[200px]">
+        <article className="w-full grid gap-4 sm:grid-cols-12 dark:bg-default-50 border border-default-100 sm:max-h-[240px] rounded-md p-4 bg-white/30 backdrop-blur-sm">
+            <div className="sm:col-span-4 h-[240px] md:h-[200px]">
 
-                <Image src={img_url} width={400} height={200} classNames={
+                <Image src={img_url} width={600} height={400} classNames={
                     {
-                        img: "rounded-md h-full object-cover",
-                        wrapper: "rounded-md h-full"
+                        img: "rounded-md h-full w-full object-cover",
+                        wrapper: "rounded-md h-full w-full",
                     }
                 } />
             </div>
-            <aside className="sm:col-span-8 pl-4 flex flex-col">
+            <aside className="sm:col-span-8 pl-4 flex flex-col gap-4">
                 <h3 className="text-default-600 font-semibold">{title}</h3>
-                <p className="mt-4 font-light text-sm">
+                <p className="mt-2 font-light text-sm">
                     {description.slice(0, 100) + '...'}
                 </p>
                 <div className="flex justify-end mt-auto gap-4">

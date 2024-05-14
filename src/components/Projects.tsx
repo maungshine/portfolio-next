@@ -80,7 +80,7 @@ const Projects = () => {
 
         <Container classnames="items-center w-full relative">
             {projects.map((project) => (
-                <motion.div key={project.id} layoutId={project.id} onClick={() => setSelectedItem(getSelectedItem(project.id))} className="cursor-pointer">
+                <motion.div key={project.id} layoutId={project.id} onClick={() => setSelectedItem(getSelectedItem(project.id))} className="cursor-pointer w-full">
                     <Project img_url={project.img_url} title={project.title} description={project.description} demo_url={project.demo_url} github_url={project.github_url} />
                 </motion.div>
             ))}

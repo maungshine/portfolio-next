@@ -28,7 +28,7 @@ const Presentation = ({
                         }
                     } />
                 </div>
-                <aside className="pl-4 py-8">
+                <aside className="pl-4 md:py-8">
                     <h3 className="text-default-600 font-semibold">{title}</h3>
                     <p className="mt-4 font-light text-sm">
                         {description}

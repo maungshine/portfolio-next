@@ -17,7 +17,7 @@ const Presentation = ({
     github_url?: string | null
 }) => {
     return (
-        <article className="flex justify-center h-[80vh] gap-4 dark:bg-default-50 border border-default-100 rounded-md p-12 bg-white/80 backdrop-blur-sm overflow-y-scroll w-[100vw] md:w-[80vw]">
+        <article className="flex justify-center h-[80vh] gap-4 dark:bg-default-50 border border-default-100 rounded-md p-2 md:p-12 bg-white/80 backdrop-blur-sm overflow-y-scroll w-[100vw] md:w-[80vw]">
             <div className="max-w-[800px] flex flex-col items-center gap-4">
                 <div className="w-full">
 
@@ -28,7 +28,7 @@ const Presentation = ({
                         }
                     } />
                 </div>
-                <aside className="pl-4 md:py-8">
+                <aside className="md:py-8">
                     <h3 className="text-default-600 font-semibold">{title}</h3>
                     <p className="mt-4 font-light text-sm">
                         {description}

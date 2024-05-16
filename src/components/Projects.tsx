@@ -89,7 +89,7 @@ const Projects = () => {
                 {selectedItem && (
                     <motion.div key={selectedItem.id} layoutId={selectedItem.id} className="fixed top-0 w-[100vw] z-50 h-[100vh] flex items-center justify-center dark:bg-default-200/50">
                         <div className="relative p-2 px-4 md:p-8 flex items-center justify-center">
-                            <CgClose className="absolute text-default-600 dark:text-default-500 cursor-pointer right-5 top-5 z-50" onClick={() => setSelectedItem(null)} />
+                            <CgClose className="absolute text-default-600 dark:text-default-500 cursor-pointer right-10 top-10 z-50" onClick={() => setSelectedItem(null)} />
 
                             <Presentation github_url={selectedItem.github_url} img_url={selectedItem.img_url} title={selectedItem.title} description={selectedItem.description} demo_url={selectedItem.demo_url} />
                         </div>

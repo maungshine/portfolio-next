@@ -54,7 +54,7 @@ const NavBar = () => {
                 </NavbarItem>
                 <NavbarItem className="flex items-center">
 
-                    <Link href="www.linkedin.com/in/maung-shine-5aa254a6" target="_balnk">
+                    <Link href="https://www.linkedin.com/in/maung-shine-5aa254a6" target="_balnk">
                         <AiFillLinkedin className="text-2xl text-default-800 dark:text-default-500" />
                     </Link>
                 </NavbarItem >

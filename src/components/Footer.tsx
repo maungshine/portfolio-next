@@ -17,7 +17,7 @@ const Footer = () => {
                 </Link>
             </div>
             <div className="flex justify-center gap-2">
-                <Link href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_balnk">
+                <Link href="www.linkedin.com/in/maung-shine-5aa254a6" target="_balnk">
                     <AiFillLinkedin className="text-2xl dark:text-default-500 text-default-800" />
                 </Link>
                 <Link href="https://github.com/maungshine" target="_blank">

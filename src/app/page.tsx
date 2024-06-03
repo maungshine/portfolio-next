@@ -10,26 +10,31 @@ import Link from "next/link";
 const certificates = [
   {
     id: '1',
+    title: "Meta Frontend Developer Professional Certificate",
+    year: 'May-2023 To Jun-2024',
+  },
+  {
+    id: '2',
     title: "Web Development Traning And Internship With Php and Laravel",
     year: '20-Oct-2023 To 20-Mar-2024',
   },
   {
-    id: '2',
+    id: '3',
     title: "Introduction to Python Programming",
     year: "2021",
   },
   {
-    id: '3',
+    id: '4',
     title: "Google It Support Professional Certificate",
     year: '2020'
   },
   {
-    id: '4',
+    id: '5',
     title: "CS50 Introduction to Computer Science And Programming",
     year: "2020",
   },
   {
-    id: '5',
+    id: '6',
     title: "Diploma in Maritime Technology",
     year: "From 2012 To 2014",
   },

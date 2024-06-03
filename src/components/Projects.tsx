@@ -10,6 +10,16 @@ import Presentation from "@/components/Presentation";
 const projects = [
     {
         id: '1',
+        img_url: '/littleLemon.png',
+        title: 'Little Lemon Table Reservation',
+        description: `This project is the capstone project built for Meta front end developer profession certificate. This project was built through user persona, user jouney map, 
+        discover pain points of the user, collect requirements for the project, layout the wirefram, design the project based on wire frame, prototype the design and test user useability and finally build the project using reactjs 
+        and react router and, test the booking funtoinality with react testing library and jest.`,
+        demo_url: 'https://github.com/maungshine/table-reservation',
+        github_url: null,
+    },
+    {
+        id: '2',
         img_url: '/ms-portfolio.png',
         title: 'Portfolio Website',
         description: `This porfolio website is to showcase my skills and projects. I will add blog later to this portfolio.
@@ -19,7 +29,7 @@ const projects = [
     },
     {
 
-        id: '2',
+        id: '3',
         img_url: '/demo-rentx.png',
         title: 'RentX (Real Estate Rental Listing Website)',
         description: ` A property rental web application where users can list their properties, 
@@ -30,7 +40,7 @@ const projects = [
         github_url: null,
     },
     {
-        id: '3',
+        id: '4',
         img_url: '/demo-social-nextjs.png',
         title: 'Simple Nextjs Social App',
         description: `A social media app where users can make friends, create topics, make
@@ -40,7 +50,7 @@ const projects = [
         demo_url: null,
     },
     {
-        id: '4',
+        id: '5',
         img_url: '/social-laravel.png',
         title: 'Simple laravel Social App',
         description: `A social media app where users can follow friends, create posts with photos, 
@@ -50,7 +60,7 @@ const projects = [
         demo_url: null,
     },
     {
-        id: '5',
+        id: '6',
         img_url: '/django-ecommerce.png',
         title: 'Django Ecommerce Application',
         description: `An ecommerce application where users can sell their products using auctions. 
@@ -60,7 +70,7 @@ const projects = [
         demo_url: null,
     },
     {
-        id: '6',
+        id: '7',
         img_url: '/shune-portfolio.png',
         title: 'Porfolio Website With Wordpress',
         description: `This is a portfolio website to showcase skills, experiences, education and blog. I used wordpress for this project.`,

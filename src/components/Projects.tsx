@@ -15,8 +15,8 @@ const projects = [
         description: `This project is the capstone project built for Meta front end developer profession certificate. This project was built through user persona, user jouney map, 
         discover pain points of the user, collect requirements for the project, layout the wirefram, design the project based on wire frame, prototype the design and test user useability and finally build the project using reactjs 
         and react router and, test the booking funtoinality with react testing library and jest.`,
-        demo_url: 'https://github.com/maungshine/table-reservation',
-        github_url: null,
+        demo_url: null,
+        github_url: 'https://github.com/maungshine/table-reservation',
     },
     {
         id: '2',

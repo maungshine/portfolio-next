@@ -39,10 +39,11 @@ const blogPosts = [
 ];
 
 const Home: React.FC = async () => {
-  const { posts } = (await fetcher(
+  const allPosts = (await fetcher(
     "http://localhost:3000/api/get-posts?page=1&perPage=3"
   )) as { posts: Post[] };
 
+  const posts = allPosts.posts.slice(0, 3);
   return (
     <ScrollProvider>
       <NavBar />

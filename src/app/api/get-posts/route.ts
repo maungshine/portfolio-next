@@ -1,7 +1,7 @@
-import { getJwtToken } from "@/jwt";
+import { NextRequest } from "next/server";
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { page: number; perPage: number } }
 ) {
   try {

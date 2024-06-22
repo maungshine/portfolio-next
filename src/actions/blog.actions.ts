@@ -6,13 +6,6 @@ import { fetchFromWP, incrementPostViewCount } from "@/lib/blogApi";
 import { Category, Comment, Post, Tag } from "@/types";
 import { getJwtToken } from "@/jwt";
 
-export async function getBlogPosts(): Promise<Post[]> {
-  const res = await fetch("http://localhost:3000/api/get-posts", {
-    cache: "no-store",
-  });
-  const posts = await res.json();
-  return posts;
-}
 
 export async function getBlogPostBySlug(slug: string): Promise<Post> {
   
@@ -89,17 +82,3 @@ export const fetchPostById = async (postId: number): Promise<Post> => {
   return post;
 };
 
-export const fetchRelatedPosts = async (postId: number): Promise<Post[]> => {
-  const res = await fetch("http://localhost:3000/api/get-posts", {
-    cache: "no-cache",
-  });
-  const posts = (await res.json()) as Post[];
-  const targetPost = posts.filter((post) => post.id === postId)[0];
-
-  if (!targetPost) {
-    console.log("no related post");
-    return [];
-  }
-
-  return calculateTfIdfSimilarity(targetPost, posts);
-};

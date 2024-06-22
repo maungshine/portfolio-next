@@ -1,5 +1,5 @@
-// lib/tfidfSimilarity.ts
-import natural from "natural";
+//@ts-ignore
+import TfIdf from "tf-idf";
 import { preprocessText } from "./textProcessing";
 import { Post } from "@/types";
 
@@ -8,7 +8,7 @@ export const calculateTfIdfSimilarity = (
   targetPost: Post,
   allPosts: Post[]
 ): Post[] => {
-  const tfidf = new natural.TfIdf();
+  const tfidf = new TfIdf();
 
   const targetText = targetPost.content.rendered.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
   const targetTokens = preprocessText(targetText);
@@ -26,14 +26,11 @@ export const calculateTfIdfSimilarity = (
   );
   const similarities: { post: Post; similarity: number }[] = [];
 
-  tfidf.documents.forEach((doc, index) => {
+  tfidf.documents.forEach((doc: string, index: number) => {
     if (index !== targetDocIndex) {
-      let similarity = 0;
-      tfidf.tfidfs(targetTokens.join(" "), (i, tfidfScore) => {
-        if (i === index) {
-          similarity = tfidfScore;
-        }
-      });
+      const docTokens = preprocessText(doc);
+      const targetTfIdf = tfidf.tfidf(targetTokens.join(" "), index);
+      const similarity = tfidf.similarity(targetTfIdf, docTokens.join(" "));
       similarities.push({ post: allPosts[index], similarity });
     }
   });

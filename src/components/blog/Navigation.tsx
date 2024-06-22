@@ -5,11 +5,10 @@ import { Suspense } from "react";
 import { Category, Tag } from "@/types";
 import { fetcher } from "@/lib/fetcher";
 
-
 const Navigation: React.FC = async () => {
   const [categories, tags] = await Promise.all([
-    fetcher(`http://localhost:3000/api/categories`) as Promise<Category[]>,
-    fetcher(`http://localhost:3000/api/tags`) as Promise<Tag[]>,
+    fetcher(`http://127.0.0.1:3000/api/categories`) as Promise<Category[]>,
+    fetcher(`http://127.0.0.1:3000/api/tags`) as Promise<Tag[]>,
   ]);
   return (
     <nav className="navigation">

@@ -16,7 +16,7 @@ function TagPage({ tag }: { tag: string }) {
   const fetchPosts = async (page: number) => {
     setLoading(true);
     const data = await fetcher(
-      `http://localhost:3000/api/posts/tags/${tag}?page=${page}&perPage=${postsPerPage}`
+      `http://127.0.0.1:3000/api/posts/tags/${tag}?page=${page}&perPage=${postsPerPage}`
     );
     setPosts(data.posts);
     setTotalPages(Math.ceil(data.totalPosts / postsPerPage));

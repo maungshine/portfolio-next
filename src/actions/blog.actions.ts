@@ -7,7 +7,7 @@ import { Category, Comment, Post, Tag } from "@/types";
 import { getJwtToken } from "@/jwt";
 
 export async function getBlogPostBySlug(slug: string): Promise<Post> {
-  const response = await fetch(`http://localhost:3000/api/posts/${slug}`);
+  const response = await fetch(`http://127.0.0.1:3000/api/posts/${slug}`);
   const post = await response.json();
   // const post = posts[0];
   console.log("getting post...", post);
@@ -75,7 +75,7 @@ export const fetchPostById = async (postId: number): Promise<Post> => {
 };
 
 export const fetchRelatedPosts = async (postId: number): Promise<Post[]> => {
-  const res = await fetch("http://localhost:3000/api/get-posts", {
+  const res = await fetch("http://127.0.0.1:3000/api/get-posts", {
     cache: "no-cache",
   });
   const posts = (await res.json()) as Post[];

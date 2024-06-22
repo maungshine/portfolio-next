@@ -1,7 +1,9 @@
 import { Post } from "@/types";
 export const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const cachedFetcher = async (url: string) : Promise<{ data: any; headers: Headers }> => {
+const cachedFetcher = async (
+  url: string
+): Promise<{ data: any; headers: Headers }> => {
   const response = await fetch(url, {
     method: "GET",
     cache: "force-cache",
@@ -20,7 +22,6 @@ const cachedFetcher = async (url: string) : Promise<{ data: any; headers: Header
   return { data, headers };
 };
 
-
 export const fetchAllPosts = async (): Promise<Post[]> => {
   const perPage = 10;
   let totalPosts = 0;
@@ -29,7 +30,7 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
   try {
     let page = 1;
     const firstPageResponse = await cachedFetcher(
-      `http://localhost:3000/api/get-posts?page=${page}&perPage=${perPage}`
+      `http://127.0.0.1:3000/api/get-posts?page=${page}&perPage=${perPage}`
     );
 
     // Example assuming `data` structure from cachedFetcher is { posts: Post[], totalPosts: number }
@@ -45,19 +46,20 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
 
     for (let i = 2; i <= totalPages; i++) {
       fetchPromises.push(
-        cachedFetcher(`http://localhost:3000/api/get-posts?page=${i}&perPage=${perPage}`)
-          .then(response => {
-            if (!response.data || !response.data.posts) {
-              throw new Error("Invalid response format received from server");
-            }
-            return response;
-          })
+        cachedFetcher(
+          `http://127.0.0.1:3000/api/get-posts?page=${i}&perPage=${perPage}`
+        ).then((response) => {
+          if (!response.data || !response.data.posts) {
+            throw new Error("Invalid response format received from server");
+          }
+          return response;
+        })
       );
     }
 
     const results = await Promise.all(fetchPromises);
 
-    results.forEach(result => {
+    results.forEach((result) => {
       posts.push(...result.data.posts);
     });
 
@@ -67,5 +69,3 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
     return [];
   }
 };
-
-

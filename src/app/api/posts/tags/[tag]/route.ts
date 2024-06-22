@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { tag: string, page: number, perPage: number } }
+  { params }: { params: { tag: string; page: number; perPage: number } }
 ) {
   const page = params.page || "1";
-    const perPage = params.perPage || "10";
+  const perPage = params.perPage || "10";
 
   const tagId = await fetchTagIdByName(params.tag);
   if (!tagId) {
@@ -42,7 +42,7 @@ export async function GET(
 
 const fetchTagIdByName = async (tagSlug: string) => {
   try {
-    const response = await axios.get("http://localhost:3000/api/tags", {
+    const response = await axios.get("http://127.0.0.1:3000/api/tags", {
       params: { search: tagSlug },
     });
 

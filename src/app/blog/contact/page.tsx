@@ -48,8 +48,8 @@ const ContactPage: React.FC = () => {
             Contact Us
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-            We'd love to hear from you! Please fill out the form below to get in
-            touch.
+            We&apos;d love to hear from you! Please fill out the form below to
+            get in touch.
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

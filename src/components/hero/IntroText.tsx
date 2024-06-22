@@ -19,7 +19,7 @@ const IntroText = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-4xl md:text-6xl text-justify font-bold mb-4 md:text-left dark:text-heading"
       >
-        Hi, I'm
+        Hi, I&apos;m
       </motion.h1>
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
@@ -53,7 +53,7 @@ const IntroText = () => {
           className="rounded-full h-14 w-44 bg-btnDarkBlue text-white font-semibold"
           onClick={() => scrollTo("#contact")}
         >
-          Let's Talk
+          Let&apos;s Talk
         </Button>
         <Button
           onClick={() => scrollTo("#portfolio")}

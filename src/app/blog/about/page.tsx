@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
         </h1>
         <div className="text-lg mb-4">
           <p>
-            Welcome to my tech blog! I'm passionate about programming and love
+            Welcome to my tech blog! I&apos;m passionate about programming and love
             sharing knowledge and tutorials on various programming-related
             topics.
           </p>

@@ -29,6 +29,7 @@ const ProfileImage = () => {
               src="/maung-shine.png"
               width={200}
               height={200}
+              alt="profile image"
               className="profile-image rounded-xl min-w-[100px] min-h-[100px] aspect-square rounded-r-full object-cover"
             />
             <div className="p-4 border border-border-dark dark:border-border-dark dark:bg-[#06050f] rounded-md flex flex-col gap-2 justify-center items-center absolute top-[110%] md:top-[50%] md:bottom-[50%] -bottom-[20%] translate-y-[-50%] -left-[40%] md:-left-[65%] text-xs w-[160px] md:w-[200px] h-[100px] md:h-[200px] z-10 md:text-sm bg-white/30 bg-gradient-to-bl dark:from-ebony-900/90 dark:to-ebony-950/50 backdrop-blur-sm">

@@ -5,8 +5,8 @@ export async function GET(
   { params }: { params: { page: number; perPage: number } }
 ) {
   try {
-    const page = params.page || "1";
-    const perPage = params.perPage || "10";
+    const page = params?.page || "1";
+    const perPage = params?.perPage || "10";
 
     const response = await fetch(
       `https://blog.maungshine.site/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}`,

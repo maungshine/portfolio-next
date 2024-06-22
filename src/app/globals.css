@@ -17,3 +17,200 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
+
+@keyframes borderAnimation {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--tw-border-opacity);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+.animated-border {
+  animation: borderAnimation 3s infinite;
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(270deg, #5a67d8, #9f7aea, #ecc94b, #5a67d8);
+  background-size: 400% 400%;
+  animation: gradientBorder 8s ease infinite;
+}
+
+.gradient-border.dark {
+  background: linear-gradient(270deg, #1a202c, #2d3748, #4a5568, #1a202c);
+}
+
+.gradient-border .content {
+  background-color: #ffffff;
+  border-radius: inherit;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-border.dark .content {
+  background-color: #2d3748;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* global.css or styles.css */
+.title {
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem; /* Smaller font size */
+  font-weight: bold;
+  color: #b0b0b0; /* Light gray color */
+  text-align: center;
+  margin-bottom: 2rem; /* Add some space below the subtitle */
+  position: relative;
+}
+
+.subtitle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px; /* Positioning below the text */
+  width: 60px; /* Width of the underline */
+  height: 2px; /* Height of the underline */
+  background-color: #b0b0b0; /* Matching light gray color */
+  border-radius: 1px; /* Rounded corners */
+}
+
+/* BlogPost.css */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.blog-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.wp-block-image {
+  width: 100% !important; /* Ensure width takes precedence */
+  height: auto !important; /* Ensure height takes precedence */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.wp-block-image img {
+  object-fit: cover !important; /* Ensure object-fit takes precedence */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.wp-block-heading {
+  font-size: 2em;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.wp-block-heading.has-x-large-font-size {
+  font-size: 2.5em !important; /* Ensure font-size takes precedence */
+}
+/* Example styles for code blocks */
+pre {
+  margin-top: 20px;
+  background-color: #f7f7f7; /* Light background */
+  color: #333; /* Light text color */
+  padding: 1rem; /* Padding */
+  overflow-x: auto; /* Ensure horizontal scrolling */
+  border-radius: 0.5rem; /* Rounded corners */
+  font-family: "Courier New", Courier, monospace; /* Font */
+  font-size: 0.875rem; /* Font size */
+}
+
+/* Dark theme */
+.dark pre {
+  background-color: #1a1a1a; /* Dark background */
+  color: #f7f7f7; /* Dark text color */
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.pagination-number {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-number.active {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.pagination-number:hover {
+  background-color: #2563eb;
+}
+
+.pagination-ellipsis {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  color: #a1a1aa;
+}
+
+.pagination-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-arrow.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-arrow:hover:not(.disabled) {
+  background-color: #2563eb;
+  color: #ffffff;
+}

@@ -16,7 +16,7 @@ function CategoryPage({ category }: { category: string }) {
   const fetchPosts = async (page: number) => {
     setLoading(true);
     const data = await fetcher(
-      `http://127.0.0.1:3000/api/posts/categories/${category}?page=${page}&perPage=${postsPerPage}`
+      `http://maungshine.site:3000/api/posts/categories/${category}?page=${page}&perPage=${postsPerPage}`
     );
     setPosts(data.posts);
     setTotalPages(Math.ceil(data.totalPosts / postsPerPage));

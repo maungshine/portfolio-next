@@ -42,7 +42,7 @@ export async function GET(
 
 const fetchTagIdByName = async (tagSlug: string) => {
   try {
-    const response = await axios.get("http://127.0.0.1:3000/api/tags", {
+    const response = await axios.get("http://maungshine.site:3000/api/tags", {
       params: { search: tagSlug },
     });
 

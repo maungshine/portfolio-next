@@ -24,13 +24,17 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = async ({ slug, session }) => {
   const [post, categories, tags] = await Promise.all([
-    fetcher(`http://127.0.0.1:3000/api/posts/${slug}`) as Promise<PostType>,
-    fetcher(`http://127.0.0.1:3000/api/categories`) as Promise<Category[]>,
-    fetcher(`http://127.0.0.1:3000/api/tags`) as Promise<Tag[]>,
+    fetcher(
+      `http://maungshine.site:3000/api/posts/${slug}`
+    ) as Promise<PostType>,
+    fetcher(`http://maungshine.site:3000/api/categories`) as Promise<
+      Category[]
+    >,
+    fetcher(`http://maungshine.site:3000/api/tags`) as Promise<Tag[]>,
   ]);
 
   const initialComments = (await fetcher(
-    `http://127.0.0.1:3000/api/posts/comments/${post.id}`
+    `http://maungshine.site:3000/api/posts/comments/${post.id}`
   )) as CommentType[];
   const postCategories = categories.filter((cat) =>
     post.categories.includes(cat.id)

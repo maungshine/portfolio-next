@@ -6,7 +6,9 @@ import Link from "next/link";
 import React from "react";
 
 async function RelatedPosts({ postId }: { postId: number }) {
-  const res = await fetch(`http://127.0.0.1:3000/api/posts/related/${postId}`);
+  const res = await fetch(
+    `http://maungshine.site:3000/api/posts/related/${postId}`
+  );
   const relatedPosts = (await res.json()) as Post[];
   return (
     <>

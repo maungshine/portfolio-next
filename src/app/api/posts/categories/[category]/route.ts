@@ -3,11 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { category: string } }
+  { params }: { params: { category: string; page: number; perPage: number } }
 ) {
-  const url = new URL(req.url);
-  const page = url.searchParams.get("page") || "1";
-  const perPage = url.searchParams.get("perPage") || "10";
+  const page = params.page || "1";
+  const perPage = params.perPage || "10";
 
   const categoryId = await fetchCategoryIdByName(params.category);
   if (!categoryId) {

@@ -1,10 +1,12 @@
 import { getJwtToken } from "@/jwt";
 
-export async function GET(request: Request) {
+export async function GET(
+  request: Request,
+  { params }: { params: { page: number; perPage: number } }
+) {
   try {
-    const url = new URL(request.url);
-    const page = url.searchParams.get("page") || "1";
-    const perPage = url.searchParams.get("perPage") || "10";
+    const page = params.page || "1";
+    const perPage = params.perPage || "10";
 
     const response = await fetch(
       `https://blog.maungshine.site/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}`,

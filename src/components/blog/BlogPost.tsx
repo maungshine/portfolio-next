@@ -4,8 +4,15 @@ import React from "react";
 import { Post } from "@/types";
 import Link from "next/link";
 import { truncateExcerpt } from "@/lib/truncateExcerpt";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Chip,
+} from "@nextui-org/react";
 import Image from "next/image";
+import { calculateReadingTime } from "@/lib/blogApi";
 
 interface BlogPostProps {
   post: Post;
@@ -31,6 +38,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
           </Link>
         </CardHeader>
         <CardBody>
+          <div className="flex py-2 justify-end">
+            <Chip variant="light">{calculateReadingTime(post.content.rendered)} min read</Chip>
+          </div>
           <div
             className="text-gray-700 dark:text-gray-300 mb-4"
             dangerouslySetInnerHTML={{

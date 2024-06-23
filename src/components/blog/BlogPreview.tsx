@@ -65,7 +65,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ posts }) => {
             </div>
           ))}
         </div>
-        <div className="mt-8 flex gap-4">
+        <div className="mt-8 flex gap-4 sm:flex-row flex-col">
           <p>Want to find out more?</p>
           <Link href={'/blog'} className="hover:to-blue-400/90 text-blue-400 hover:underline">
               See all blog posts

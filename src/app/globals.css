@@ -157,6 +157,13 @@ pre {
   font-size: 0.875rem; /* Font size */
 }
 
+@media screen and (max-width: 600px) {
+  pre {
+    font-size: 14px;
+    border: none;
+  }
+}
+
 /* Dark theme */
 .dark pre {
   background-color: #1a1a1a; /* Dark background */
@@ -169,7 +176,6 @@ pre {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 
 .pagination-number {
   display: inline-block;

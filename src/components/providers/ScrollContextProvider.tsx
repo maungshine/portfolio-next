@@ -150,7 +150,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
               transition={{ duration: 1, ease: "easeInOut" }}
               className="fixed top-0 left-0 w-full h-full bg-gradient-to-b from-gray-800 to-gray-900 z-50"
             >
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center">
                 <motion.h1
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}

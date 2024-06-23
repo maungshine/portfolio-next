@@ -44,11 +44,11 @@ const Post: React.FC<PostProps> = async ({ slug, session }) => {
   await incrementPostViewCount(post.id);
   return (
     <article
-      className={`bg-cardBackground dark:bg-[#06050f] p-8 dark:text-text-dark`}
+      className={`bg-cardBackground dark:bg-[#06050f] sm:p-8 dark:text-text-dark`}
     >
       {post && (
         <>
-          <h1 className="text-5xl font-bold mb-8 text-center">
+          <h1 className="sm:text-5xl text-2xl font-bold mb-8 text-center">
             {post.title.rendered}
           </h1>
           <div className="flex items-center mt-4 max-w-[800px] mx-auto justify-end">

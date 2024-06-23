@@ -112,4 +112,10 @@ export async function getAllPosts(page: number, perPage: number) {
   }
 }
 
-
+export function calculateReadingTime(content: string) {
+  const wordsPerMinute = 200; // Average reading speed
+  const text = content.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
+  const wordCount = text.trim().split(/\s+/).length; // Calculate word count
+  const readingTimeInMinutes = Math.ceil(wordCount / wordsPerMinute);
+  return readingTimeInMinutes;
+}

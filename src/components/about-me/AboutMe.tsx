@@ -17,11 +17,11 @@ const AboutMe = () => {
     return scrollYProgress.onChange((latest) => console.log(latest));
   }, [scrollYProgress]);
 
-  const aboutMe = `Hello! I&apos;m Maung Shine from Yangon, Myanmar. I specialize in crafting
+  const aboutMe = `Hello! I'm Maung Shine from Yangon, Myanmar. I specialize in crafting
 visually stunning and highly functional websites using Next.js,
 TypeScript, JavaScript, and React. My passion for web development
 drives me to create unique, engaging, and user-friendly websites that
-truly reflect the brand&apos;s identity. My approach to web development is
+truly reflect the brand's identity. My approach to web development is
 centered around creativity, functionality, and user experience. I
 design custom websites that not only look great but also perform
 exceptionally well. I focus on creating intuitive interfaces that

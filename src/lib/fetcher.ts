@@ -30,7 +30,7 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
   try {
     let page = 1;
     const firstPageResponse = await cachedFetcher(
-      `http://maungshine.site:3000/api/get-posts?page=${page}&perPage=${perPage}`
+      `https://maungshine.site/api/get-posts?page=${page}&perPage=${perPage}`
     );
 
     // Example assuming `data` structure from cachedFetcher is { posts: Post[], totalPosts: number }
@@ -47,7 +47,7 @@ export const fetchAllPosts = async (): Promise<Post[]> => {
     for (let i = 2; i <= totalPages; i++) {
       fetchPromises.push(
         cachedFetcher(
-          `http://maungshine.site:3000/api/get-posts?page=${i}&perPage=${perPage}`
+          `https://maungshine.site/api/get-posts?page=${i}&perPage=${perPage}`
         ).then((response) => {
           if (!response.data || !response.data.posts) {
             throw new Error("Invalid response format received from server");

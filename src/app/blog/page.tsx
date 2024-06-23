@@ -19,7 +19,7 @@ const Blog: React.FC = () => {
   const fetchPosts = async (page: number) => {
     setLoading(true);
     const data = await fetcher(
-      `http://maungshine.site:3000/api/get-posts?page=${page}&perPage=${postsPerPage}`
+      `https://maungshine.site/api/get-posts?page=${page}&perPage=${postsPerPage}`
     );
     setPosts(data.posts);
     setTotalPages(Math.ceil(data.totalPosts / postsPerPage));

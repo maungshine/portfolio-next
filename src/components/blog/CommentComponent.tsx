@@ -85,7 +85,9 @@ const CommentComponent: React.FC<Props> = ({
 
   const fetchComments = async () => {
     try {
-      const response = await fetch(`/api/posts/comments/${postId}`);
+      const response = await fetch(
+        `https://maungshine.site/api/posts/comments/${postId}`
+      );
       const commentsData = await response.json();
       if (commentsData) {
         setComments(initializeShowReplies(commentsData));

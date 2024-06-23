@@ -91,7 +91,7 @@ export async function postCommentToPost(
 ): Promise<Comment> {
   try {
     const response = await fetch(
-      "http://maungshine.site:3000/api/posts/comments/create",
+      "https://maungshine.site/api/posts/comments/create",
       {
         method: "POST",
         headers: {

@@ -7,10 +7,8 @@ import { fetcher } from "@/lib/fetcher";
 
 const Navigation: React.FC = async () => {
   const [categories, tags] = await Promise.all([
-    fetcher(`http://maungshine.site:3000/api/categories`) as Promise<
-      Category[]
-    >,
-    fetcher(`http://maungshine.site:3000/api/tags`) as Promise<Tag[]>,
+    fetcher(`https://maungshine.site/api/categories`) as Promise<Category[]>,
+    fetcher(`https://maungshine.site/api/tags`) as Promise<Tag[]>,
   ]);
   return (
     <nav className="navigation">

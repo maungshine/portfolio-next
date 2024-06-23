@@ -88,3 +88,36 @@ export const fetchRelatedPosts = async (postId: number): Promise<Post[]> => {
 
   return calculateTfIdfSimilarity(targetPost, posts);
 };
+
+export async function postCommentToPost(
+  postId: number,
+  { content, parentId }: { content: string; parentId?: number },
+  email: string
+): Promise<Comment> {
+  try {
+    const response = await fetch(
+      "https://maungshine.site/api/posts/comments/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          postId,
+          content,
+          email,
+          parentId,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to post comment");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("Error posting comment:", error);
+    throw error;
+  }
+}

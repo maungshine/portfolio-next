@@ -6,7 +6,7 @@ import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
 import ReplyModal from "./ReplyModal";
 import { Comment as CommentType } from "@/types";
-import { postCommentToPost } from "@/lib/blogApi";
+import { postCommentToPost } from "@/actions/blog.actions";
 import { Session } from "next-auth";
 
 interface Props {

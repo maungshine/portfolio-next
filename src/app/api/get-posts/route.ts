@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  request: NextRequest 
-) {
+export async function GET(request: NextRequest) {
+  const page = request.nextUrl.searchParams.get("page") || "1";
+  const perPage = request.nextUrl.searchParams.get("perPage") || "10";
   try {
-    const page = request.nextUrl.searchParams.get('page') || "1";
-    const perPage = request.nextUrl.searchParams.get('perPage') || "10";
     const response = await fetch(
       `https://blog.maungshine.site/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}`,
       {

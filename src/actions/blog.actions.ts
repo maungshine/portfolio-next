@@ -75,7 +75,7 @@ export const fetchPostById = async (postId: number): Promise<Post> => {
 };
 
 export const fetchRelatedPosts = async (postId: number): Promise<Post[]> => {
-  const res = await fetch("/api/get-posts", {
+  const res = await fetch("https://www.maungshine.site/api/get-posts", {
     cache: "no-cache",
   });
   const posts = (await res.json()) as Post[];

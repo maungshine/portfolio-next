@@ -173,7 +173,7 @@ function BlogNavbar({ session }: { session: Session | null }) {
                       onClick={async () => {
                         await logout();
                       }}
-                      className="w-full rounded-full"
+                      className="w-full rounded-full bg-btnDarkBlue hover:bg-btnDarkBlue/80 text-white font-semibold text-center py-6"
                     >
                       Logout
                     </Button>
@@ -184,7 +184,7 @@ function BlogNavbar({ session }: { session: Session | null }) {
                       onClick={async () => {
                         await signInWithGoogle();
                       }}
-                      className="w-full rounded-full bg-blue-600 font-semibold text-center py-4"
+                      className="w-full rounded-full bg-btnDarkBlue hover:bg-btnDarkBlue/80 text-white font-semibold text-center py-6"
                     >
                       Login with Google
                     </Button>

@@ -14,41 +14,49 @@ interface Project {
   github_url: string | null;
 }
 
-const projects: Project[] = [
-  {
-    id: "1",
-    img_url: "/littleLemon.png",
-    title: "Little Lemon Table Reservation",
-    description: `This project is the capstone project built for Meta front end developer profession certificate. This project was built through user persona, user journey map, discover pain points of the user, collect requirements for the project, layout the wireframe, design the project based on wireframe, prototype the design and test user usability and finally build the project using React.js and React Router and test the booking functionality with React Testing Library and Jest.`,
-    demo_url: null,
-    github_url: "https://github.com/maungshine/table-reservation",
-  },
-  {
-    id: "2",
-    img_url: "/ms-portfolio.png",
-    title: "Portfolio Website",
-    description: `This portfolio website is to showcase my skills and projects. I will add a blog later to this portfolio. I used TypeScript, React, Next.js, Framer Motion, Next UI, Tailwind CSS, Prisma ORM, and Postgres, and deployed it to Vercel.`,
-    demo_url: "https://maungshine.site",
-    github_url: null,
-  },
-  {
-    id: "3",
-    img_url: "/demo-rentx.png",
-    title: "RentX",
-    description: `A property rental web application where users can list their properties, look for properties, save properties they like, and find properties on a map (Leaflet map). I am still improving the app. Recently, I added infinite scrolling for listings. I used TypeScript, React, Next.js, Next UI, Shadcn, Tailwind CSS, Prisma ORM, and Postgres for this project and deployed it to Vercel.`,
-    demo_url: "https://rentx-neon.vercel.app",
-    github_url: null,
-  },
-];
-
 const Portfolio: React.FC = () => {
   const cardVariants = {
     rest: { opacity: 1, scale: 1 },
     hover: { opacity: 0.9, scale: 1.05 },
   };
-
+  const { theme, setTheme } = useTheme();
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const projects: Project[] = [
+    {
+      id: "1",
+      img_url: "/littleLemon.png",
+      title: "Little Lemon Table Reservation",
+      description: `This project is the capstone project built for Meta front end developer profession certificate. This project was built through user persona, user journey map, discover pain points of the user, collect requirements for the project, layout the wireframe, design the project based on wireframe, prototype the design and test user usability and finally build the project using React.js and React Router and test the booking functionality with React Testing Library and Jest.`,
+      demo_url: null,
+      github_url: "https://github.com/maungshine/table-reservation",
+    },
+    {
+      id: "2",
+      img_url:
+        theme === "light" ? "/portfolio-light.png" : "/portfolio-dark.png",
+      title: "Portfolio Website",
+      description: `This portfolio website is to showcase my skills and projects. I will add a blog later to this portfolio. I used TypeScript, React, Next.js, Framer Motion, Next UI, Tailwind CSS, Prisma ORM, and Postgres, and deployed it to Vercel.`,
+      demo_url: "https://maungshine.site",
+      github_url: null,
+    },
+    {
+      id: "3",
+      img_url: "/demo-rentx.png",
+      title: "RentX",
+      description: `A property rental web application where users can list their properties, look for properties, save properties they like, and find properties on a map (Leaflet map). I am still improving the app. Recently, I added infinite scrolling for listings. I used TypeScript, React, Next.js, Next UI, Shadcn, Tailwind CSS, Prisma ORM, and Postgres for this project and deployed it to Vercel.`,
+      demo_url: "https://rentx-neon.vercel.app",
+      github_url: null,
+    },
+    {
+      id: "4",
+      img_url: "/dev-links.png",
+      title: "DevLinks",
+      description: `A link sharing application for developers where users can create links, manage links and share with a personalized links page to the world. It inludes drage and drop features for sorting links I used dnd kit for that. Other features are credentials authentication with next auth, mock preview, final preview and personal url for sharing links.`,
+      demo_url: "https://link-sharing-app-sigma-mauve.vercel.app/",
+      github_url: "https://github.com/maungshine/link-sharing-app",
+    },
+  ];
 
   const openModal = (project: Project) => {
     setSelectedProject(project);

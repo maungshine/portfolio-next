@@ -142,9 +142,7 @@ const NavBar: React.FC = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className={`md:hidden flex flex-col items-start space-y-2 px-4 py-2 ${
-              theme === "dark" ? "bg-[#040506]" : "bg-white"
-            }`}
+            className={`md:hidden flex flex-col items-start space-y-2 px-4 py-4 dark:bg-[#040506] bg-white`}
           >
             {sections.map((section, index) => (
               <NavItem

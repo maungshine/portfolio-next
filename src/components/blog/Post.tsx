@@ -48,10 +48,10 @@ const Post: React.FC<PostProps> = async ({ slug, session }) => {
     >
       {post && (
         <>
-          <h1 className="sm:text-5xl text-2xl font-bold mb-8 text-center">
+          <h1 className="sm:text-5xl text-2xl p-2 font-bold mb-8 text-center">
             {post.title.rendered}
           </h1>
-          <div className="flex items-center mt-4 max-w-[800px] mx-auto justify-end">
+          <div className="flex items-center mt-4 px-4 max-w-[800px] mx-auto justify-end">
             <FaEye className="mr-2 text-gray-500" />
             <p className="text-gray-500">{post.acf.view_count} views</p>
           </div>
@@ -86,7 +86,7 @@ const Post: React.FC<PostProps> = async ({ slug, session }) => {
           <div className={`blog-post p-6`}>
             <Suspense
               fallback={
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
                   {[1, 2, 3].map((n, index) => (
                     <BlogCardSkeleton key={index} />
                   ))}

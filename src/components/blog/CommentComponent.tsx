@@ -119,7 +119,7 @@ const CommentComponent: React.FC<Props> = ({
   };
 
   return (
-    <div className="wp-content md:px-20 mt-8">
+    <div className="wp-content md:px-20 p-4 mt-8">
       <h2 className="text-3xl font-bold mb-4">Comments</h2>
 
       <CommentList

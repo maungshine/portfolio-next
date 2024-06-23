@@ -1,7 +1,9 @@
 "use server";
 import { fetchRelatedPosts } from "@/actions/blog.actions";
+import { calculateReadingTime } from "@/lib/blogApi";
 import { truncateExcerpt } from "@/lib/truncateExcerpt";
 import { Post } from "@/types";
+import { Chip } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
 
@@ -27,6 +29,11 @@ async function RelatedPosts({ postId }: { postId: number }) {
                 <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                   {truncateExcerpt(relatedPost.title.rendered, 50)}
                 </h2>
+                <div className="flex py-2 justify-end">
+                  <Chip variant="light">
+                    {calculateReadingTime(relatedPost.content.rendered)} min read
+                  </Chip>
+                </div>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
                   {truncateExcerpt(
                     relatedPost.excerpt.rendered.replace(/(<([^>]+)>)/gi, "")

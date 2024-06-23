@@ -1,5 +1,4 @@
-import { getJwtToken } from "@/jwt";
-import { fetchFromWP } from "@/lib/blogApi";
+
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(

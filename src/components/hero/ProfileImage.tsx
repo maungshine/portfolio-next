@@ -26,7 +26,7 @@ const ProfileImage = () => {
           <div className="p-8 border-2 border-border-dark dark:border-border-dark dark:bg-orange-400 bg-orange-400 rounded-xl rounded-r-[50%] relative">
             <GiSpanner className="text-4xl absolute -left-4 bottom-[50%] text-rose-400" />
             <Image
-              src="/maung-shine.png"
+              src="/cartoon-avatar.png"
               width={200}
               height={200}
               alt="profile image"

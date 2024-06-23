@@ -1,46 +1,49 @@
-// lib/tfidfSimilarity.ts
-import natural from "natural";
-import { preprocessText } from "./textProcessing";
-import { Post } from "@/types";
+//@ts-ignore
+import * as TFIDF from 'tf-idf.js';
+import { Post } from '@/types';
+import { preprocessText } from './textProcessing';
 
-// Create a new instance of TfIdf for each function call to avoid accumulation of documents from previous calls
+// Function to calculate TF-IDF similarity
 export const calculateTfIdfSimilarity = (
   targetPost: Post,
   allPosts: Post[]
 ): Post[] => {
-  const tfidf = new natural.TfIdf();
+  // Initialize TF-IDF instance
+  const tfidf = new TFIDF();
 
-  const targetText = targetPost.content.rendered.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
+  // Preprocess target post text
+  const targetText = targetPost.content.rendered.replace(/(<([^>]+)>)/gi, ''); // Remove HTML tags
   const targetTokens = preprocessText(targetText);
 
-  // Add all posts to the TF-IDF model
-  allPosts.forEach((post) => {
-    const text = post.content.rendered.replace(/(<([^>]+)>)/gi, ""); // Remove HTML tags
+  // Add documents to TF-IDF model
+  allPosts.forEach(post => {
+    const text = post.content.rendered.replace(/(<([^>]+)>)/gi, ''); // Remove HTML tags
     const tokens = preprocessText(text);
-    tfidf.addDocument(tokens.join(" "));
+    tfidf.addDocument(post.id.toString(), tokens.join(' ')); // Add document with identifier
   });
 
-  // Calculate similarity
-  const targetDocIndex = allPosts.findIndex(
-    (post) => post.id === targetPost.id
-  );
+  // Calculate similarities
   const similarities: { post: Post; similarity: number }[] = [];
 
-  tfidf.documents.forEach((doc, index) => {
-    if (index !== targetDocIndex) {
+  allPosts.forEach(post => {
+    if (post.id !== targetPost.id) {
+      const postDocId = post.id.toString();
       let similarity = 0;
-      tfidf.tfidfs(targetTokens.join(" "), (i, tfidfScore) => {
-        if (i === index) {
-          similarity = tfidfScore;
+
+      // Calculate similarity using TF-IDF
+      tfidf.tfidfs(targetTokens.join(' '), (token: string, tfidfScore: number, docId: string) => {
+        if (docId === postDocId) {
+          similarity += tfidfScore;
         }
       });
-      similarities.push({ post: allPosts[index], similarity });
+
+      similarities.push({ post, similarity });
     }
   });
 
-  // Sort by similarity score
+  // Sort by similarity score (descending)
   similarities.sort((a, b) => b.similarity - a.similarity);
 
-  // Return the top 5 most similar posts
-  return similarities.slice(0, 5).map((item) => item.post);
+  // Return top 5 most similar posts
+  return similarities.slice(0, 5).map(item => item.post);
 };

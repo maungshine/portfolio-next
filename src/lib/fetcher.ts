@@ -1,5 +1,5 @@
 import { Post } from "@/types";
-export const fetcher = (url: string) => fetch(url).then((res) => res.json());
+export const fetcher = (url: string) => fetch(url, { mode: "no-cors"}).then((res) => res.json());
 
 const cachedFetcher = async (
   url: string

@@ -19,7 +19,7 @@ const CommentForm: React.FC<Props> = ({
   return (
     <>
       <textarea
-        className="bg-[#f8f7ff] focus:outline-none focus:border focus:border-btnDarkBlue w-full p-2 mt-4 border rounded"
+        className="bg-[#f8f7ff] dark:bg-[#040309] focus:outline-none focus:border focus:border-btnDarkBlue w-full p-2 mt-4 border rounded"
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
         placeholder="Enter your comment..."

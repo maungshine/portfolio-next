@@ -42,9 +42,12 @@ export async function GET(
 
 const fetchCategoryIdByName = async (categorySlug: string) => {
   try {
-    const response = await axios.get("/api/categories", {
-      params: { search: categorySlug },
-    });
+    const response = await axios.get(
+      "https://www.maungshine.site/api/categories",
+      {
+        params: { search: categorySlug },
+      }
+    );
 
     const categories = response.data;
     const category = categories.find(

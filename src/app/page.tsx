@@ -37,7 +37,7 @@ const blogPosts = [
 ];
 
 const Home: React.FC = async () => {
-  const posts = await getAllPosts(0, 3);
+  const res = await getAllPosts(0, 3);
 
   return (
     <ScrollProvider>
@@ -90,7 +90,7 @@ const Home: React.FC = async () => {
           id="blog"
           className="flex flex-col items-center justify-center min-h-screen w-full"
         >
-          <BlogPreview posts={posts} />
+          <BlogPreview posts={res?.posts} />
         </section>
         <section
           id="contact"

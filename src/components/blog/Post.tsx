@@ -34,7 +34,7 @@ const Post: React.FC<PostProps> = async ({ slug, session }) => {
   ]);
 
   const initialComments = (await fetcher(
-    `/api/posts/comments/${post.id}`
+    `https://www.maungshine.site/api/posts/comments/${post.id}`
   )) as CommentType[];
   const postCategories = categories.filter((cat) =>
     post.categories.includes(cat.id)

@@ -5,14 +5,16 @@ import AboutMe from "@/components/about-me/AboutMe";
 import Skills from "@/components/skills/Skills";
 import Portfolio from "@/components/portfolio/Portfolio";
 import WorkingExperience from "@/components/experience/WorkingExperience";
+import Education from "@/components/education/Educatoin";
 import Services from "@/components/services/Services";
 import BlogPreview from "@/components/blog/BlogPreview";
 import Contact from "@/components/contact/Contact";
 import { ScrollProvider } from "@/components/providers/ScrollContextProvider";
 import NavBar from "@/components/NavBar";
 import FloatingNavButtons from "@/components/floating-button/FloatingButton";
+import { fetcher } from "@/lib/fetcher";
+import { Post } from "@/types";
 import Footer from "@/components/Footer";
-import { getAllPosts } from "@/lib/blogApi";
 
 const blogPosts = [
   {
@@ -37,8 +39,11 @@ const blogPosts = [
 ];
 
 const Home: React.FC = async () => {
-  const res = await getAllPosts(0, 3);
+  const allPosts = (await fetcher(
+    "https://www.maungshine.site/api/get-posts?page=1&perPage=3"
+  )) as { posts: Post[] };
 
+  const posts = allPosts.posts.slice(0, 3);
   return (
     <ScrollProvider>
       <NavBar />
@@ -90,7 +95,7 @@ const Home: React.FC = async () => {
           id="blog"
           className="flex flex-col items-center justify-center min-h-screen w-full"
         >
-          <BlogPreview posts={res?.posts} />
+          <BlogPreview posts={posts} />
         </section>
         <section
           id="contact"

@@ -40,7 +40,7 @@ const blogPosts = [
 
 const Home: React.FC = async () => {
   const allPosts = (await fetcher(
-    "https://www.maungshine.site/api/get-posts?page=1&perPage=3"
+    "https://portfolio-next-1uun50695-maung-shines-projects.vercel.app/api/get-posts?page=1&perPage=3"
   )) as { posts: Post[] };
 
   const posts = allPosts.posts.slice(0, 3);

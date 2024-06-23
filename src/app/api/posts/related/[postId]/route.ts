@@ -8,16 +8,6 @@ export async function GET(
   { params }: { params: { postId: number } }
 ) {
   const postId = params.postId;
-  const res = await fetch("https://blog.maungshine.site/wp-json/wp/v2/posts", {
-    cache: "no-store",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (!res.ok) {
-    return NextResponse.json(null);
-  }
   const posts = await fetchAllPosts();
   if (!posts) {
     return NextResponse.json(null);

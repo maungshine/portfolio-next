@@ -40,7 +40,8 @@ const blogPosts = [
 
 const Home: React.FC = async () => {
   const allPosts = (await fetcher(
-    "https://www.maungshine.site/api/get-posts?page=1&perPage=3"
+    "https://www.maungshine.site/api/get-posts?page=1&perPage=3",
+    "no-cache"
   )) as { posts: Post[] };
 
   const posts = allPosts.posts.slice(0, 3);

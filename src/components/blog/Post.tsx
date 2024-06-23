@@ -24,9 +24,13 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = async ({ slug, session }) => {
   const [post, categories, tags] = await Promise.all([
-    fetcher(`/api/posts/${slug}`) as Promise<PostType>,
-    fetcher(`/api/categories`) as Promise<Category[]>,
-    fetcher(`/api/tags`) as Promise<Tag[]>,
+    fetcher(
+      `https://www.maungshine.site/api/posts/${slug}`
+    ) as Promise<PostType>,
+    fetcher(`https://www.maungshine.site/api/categories`) as Promise<
+      Category[]
+    >,
+    fetcher(`https://maungshine.site/api/tags`) as Promise<Tag[]>,
   ]);
 
   const initialComments = (await fetcher(

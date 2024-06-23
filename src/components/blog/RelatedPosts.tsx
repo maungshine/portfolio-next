@@ -7,7 +7,7 @@ import React from "react";
 
 async function RelatedPosts({ postId }: { postId: number }) {
   const res = await fetch(
-    `https://maungshine.site/api/posts/related/${postId}`
+    `/api/posts/related/${postId}`
   );
   const relatedPosts = (await res.json()) as Post[];
   return (

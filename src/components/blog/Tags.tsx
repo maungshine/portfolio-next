@@ -16,7 +16,7 @@ function TagPage({ tag }: { tag: string }) {
   const fetchPosts = async (page: number) => {
     setLoading(true);
     const data = await fetcher(
-      `https://maungshine.site/api/posts/tags/${tag}?page=${page}&perPage=${postsPerPage}`
+      `/api/posts/tags/${tag}?page=${page}&perPage=${postsPerPage}`
     );
     setPosts(data.posts);
     setTotalPages(Math.ceil(data.totalPosts / postsPerPage));

@@ -42,7 +42,7 @@ export async function GET(
 
 const fetchTagIdByName = async (tagSlug: string) => {
   try {
-    const response = await axios.get("https://maungshine.site/api/tags", {
+    const response = await axios.get("/api/tags", {
       params: { search: tagSlug },
     });
 

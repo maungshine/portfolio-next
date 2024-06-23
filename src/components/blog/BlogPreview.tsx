@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 interface BlogPreviewProps {
-  posts: Post[];
+  posts: Post[] | null;
 }
 
 const BlogPreview: React.FC<BlogPreviewProps> = ({ posts }) => {

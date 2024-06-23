@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Chip } from "@nextui-org/react";
+import { calculateReadingTime } from "@/lib/blogApi";
 
 interface BlogPreviewProps {
   posts: Post[] | null;
@@ -28,47 +30,56 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ posts }) => {
           I like to write and share my knowledge with other developers too.
         </motion.h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-          {posts && posts.map((post) => (
-            <div
-              key={post.id}
-              className="rounded-lg bg-cardBackground overflow-hidden shadow-lg dark:bg-[#06050f] border border-[#B6B8C3] dark:border-[#110f1f] transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-            >
-              {post.featuredMedia && (
-                <Image
-                  width={400}
-                  height={200}
-                  src={post.featuredMedia}
-                  alt={post.title.rendered}
-                  className="w-full h-48 object-cover object-center"
-                />
-              )}
-              <div className="p-6 flex flex-col h-full">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                  {post.title.rendered}
-                </h3>
-                <div
-                  className="text-sm text-gray-700 dark:text-gray-300 mb-4 line-clamp-3"
-                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                />
-                <div className="flex items-center justify-between mt-auto">
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                    {new Date(post.date).toLocaleDateString()}
-                  </p>
-                  <Link
-                    href={`/blog/posts/${post.slug}`} // Replace with actual link
-                    className="bg-btnDarkBlue text-white px-4 py-2 rounded-full hover:bg-btnDarkBlue/80 font-medium focus:outline-none"
-                  >
-                    Read more
-                  </Link>
+          {posts &&
+            posts.map((post) => (
+              <div
+                key={post.id}
+                className="rounded-lg bg-cardBackground overflow-hidden shadow-lg dark:bg-[#06050f] border border-[#B6B8C3] dark:border-[#110f1f] transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              >
+                {post.featuredMedia && (
+                  <Image
+                    width={400}
+                    height={200}
+                    src={post.featuredMedia}
+                    alt={post.title.rendered}
+                    className="w-full h-48 object-cover object-center"
+                  />
+                )}
+                <div className="p-6 flex flex-col h-full">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                    {post.title.rendered}
+                  </h3>
+                  <div className="flex py-2 justify-end">
+                    <Chip variant="light">
+                      {calculateReadingTime(post.content.rendered)} min read
+                    </Chip>
+                  </div>
+                  <div
+                    className="text-sm text-gray-700 dark:text-gray-300 mb-4 line-clamp-3"
+                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                  />
+                  <div className="flex items-center justify-between mt-auto">
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      {new Date(post.date).toLocaleDateString()}
+                    </p>
+                    <Link
+                      href={`/blog/posts/${post.slug}`} // Replace with actual link
+                      className="bg-btnDarkBlue text-white px-4 py-2 rounded-full hover:bg-btnDarkBlue/80 font-medium focus:outline-none"
+                    >
+                      Read more
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         <div className="mt-8 flex gap-4 sm:flex-row flex-col">
           <p>Want to find out more?</p>
-          <Link href={'/blog'} className="hover:to-blue-400/90 text-blue-400 hover:underline">
-              See all blog posts
+          <Link
+            href={"/blog"}
+            className="hover:to-blue-400/90 text-blue-400 hover:underline"
+          >
+            See all blog posts
           </Link>
         </div>
       </div>

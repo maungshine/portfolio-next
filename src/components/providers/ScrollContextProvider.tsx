@@ -45,7 +45,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const overlayControls = useAnimation();
-  const [currentSection, setCurrentSection] = useState("");
+  const [currentSection, setCurrentSection] = useState(sections[0]);
   const [upcomingSection, setUpcomingSection] = useState("");
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
@@ -91,7 +91,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
 
         setTimeout(() => {
           window.scrollTo({ top, behavior: "auto" });
-          setCurrentSection(target);
+          setCurrentSection(target); // Update current section immediately after scrolling
           if (target === "#about") {
             setShowScrollIndicator(true);
           }

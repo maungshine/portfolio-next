@@ -19,7 +19,7 @@ const sections = [
 
 const sectionTitles = [
   "Welcome",
-  "About Me",
+  "About",
   "Skills",
   "Portfolio",
   "Background",
@@ -61,7 +61,7 @@ const NavBar: React.FC = () => {
           Maung Shine
         </span>
 
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           {sections.map((section, index) => (
             <NavItem
               key={section}
@@ -101,7 +101,7 @@ const NavBar: React.FC = () => {
           </div>
 
           <button
-            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none"
+            className="lg:hidden text-gray-800 dark:text-gray-200 focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? (

@@ -1,5 +1,16 @@
 "use client";
 import React, { useState } from "react";
+import { z } from "zod";
+
+type Error = {
+  errors: {
+    name?: string[];
+    email?: string[];
+    subject?: string[];
+    message?: string[];
+    _form?: string[];
+  };
+};
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
@@ -7,12 +18,30 @@ const Contact: React.FC = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+
+  const contactMeSchema = z.object({
+    name: z.string().trim().min(1, { message: "required!" }),
+    email: z.string().email("Invalid email"),
+    subject: z.string().trim().min(1, { message: "required!" }),
+    message: z.string().trim().min(1, { message: "required!" }),
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    const validated = contactMeSchema.safeParse({
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    });
+
+    if (!validated.success) {
+      setError({ errors: validated.error.flatten().fieldErrors });
+      return;
+    }
     setError(null);
     setSuccess(null);
 
@@ -23,7 +52,12 @@ const Contact: React.FC = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({
+          name: validated.data.name,
+          email: validated.data.email,
+          subject: validated.data.subject,
+          message: validated.data.message,
+        }),
       }
     );
 
@@ -36,7 +70,11 @@ const Contact: React.FC = () => {
       setSubject("");
       setMessage("");
     } else {
-      setError("Failed to send your message. Please try again later.");
+      setError({
+        errors: {
+          _form: ["Failed to send your message. Please try again later."],
+        },
+      });
     }
   };
 
@@ -50,7 +88,9 @@ const Contact: React.FC = () => {
           {/* Contact Form */}
           <div className="dark:bg-[#06050F] p-6 md:p- bg-cardBackground">
             <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
-              {error && <p className="text-red-500">{error}</p>}
+              {error?.errors._form && (
+                <p className="text-red-500">{error.errors._form[0]}</p>
+              )}
               {success && <p className="text-green-500">{success}</p>}
               <div>
                 <label
@@ -68,6 +108,9 @@ const Contact: React.FC = () => {
                   className="mt-1 p-3 w-full dark:bg-[#040309] placeholder:text-[#3d3c47] rounded-md border border-gray-300 dark:border-[#110f1f] dark:text-gray-200 dark:focus:border-[#241A7F] dark:focus:border-2 dark:focus:outline-none"
                   placeholder="Your Name"
                 />
+                {error?.errors.name && (
+                  <p className="text-red-500 mt-2">{error.errors.name[0]}</p>
+                )}
               </div>
               <div>
                 <label
@@ -85,6 +128,9 @@ const Contact: React.FC = () => {
                   className="mt-1 p-3 w-full dark:bg-[#040309] placeholder:text-[#3d3c47] rounded-md border border-gray-300 dark:border-[#110f1f] dark:text-gray-200 dark:focus:border-[#241A7F] dark:focus:border-2 dark:focus:outline-none"
                   placeholder="Your Email"
                 />
+                {error?.errors.email && (
+                  <p className="text-red-500 mt-2">{error.errors.email[0]}</p>
+                )}
               </div>
               <div>
                 <label
@@ -102,6 +148,9 @@ const Contact: React.FC = () => {
                   className="mt-1 p-3 w-full dark:bg-[#040309] placeholder:text-[#3d3c47] rounded-md border border-gray-300 dark:border-[#110f1f] dark:text-gray-200 dark:focus:border-[#241A7F] dark:focus:border-2 dark:focus:outline-none"
                   placeholder="Subject"
                 />
+                {error?.errors.subject && (
+                  <p className="text-red-500 mt-2">{error.errors.subject[0]}</p>
+                )}
               </div>
               <div>
                 <label
@@ -119,6 +168,9 @@ const Contact: React.FC = () => {
                   placeholder="Your Message"
                   rows={5}
                 />
+                {error?.errors.message && (
+                  <p className="text-red-500 mt-2">{error.errors.message[0]}</p>
+                )}
               </div>
               <button
                 type="submit"

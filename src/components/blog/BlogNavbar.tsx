@@ -16,9 +16,10 @@ import { useTheme as useNextTheme } from "next-themes";
 import { SunIcon } from "../icons/SunIcon";
 import { MoonIcon } from "../icons/MoonIcon";
 import { logout, signInWithGoogle } from "@/actions/auth.actions";
-import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 
-function BlogNavbar({ session }: { session: Session | null }) {
+function BlogNavbar() {
+  const session = useSession()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isThemeInitialized, setIsThemeInitialized] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();

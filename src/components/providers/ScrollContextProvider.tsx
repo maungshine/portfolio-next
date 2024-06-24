@@ -56,8 +56,8 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
       const sectionIndex = sections.findIndex((section) => {
         const element = document.querySelector(section);
         if (element) {
-          const { top } = element.getBoundingClientRect();
-          return top <= offset && top > -element.clientHeight + offset;
+          const { top, height } = element.getBoundingClientRect();
+          return top <= offset && top > -height + offset;
         }
         return false;
       });
@@ -88,10 +88,17 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
         });
 
         const top = element.getBoundingClientRect().top + window.pageYOffset;
-        const offset = window.innerHeight * 0.1; // Adjust the offset as needed
+        const viewportHeight = window.innerHeight;
+        const elementHeight = element.clientHeight;
+        const offset = viewportHeight * 0.1; // Adjust the offset as needed
+
+        const scrollToPosition =
+          elementHeight > viewportHeight
+            ? top
+            : top - (viewportHeight - elementHeight) / 2;
 
         setTimeout(() => {
-          window.scrollTo({ top: top - offset, behavior: "auto" });
+          window.scrollTo({ top: scrollToPosition, behavior: "auto" });
           setCurrentSection(target);
         }, 1000); // Delay before scrolling to the target section
 
@@ -182,4 +189,4 @@ export const useScroll = (): ScrollContextProps => {
     throw new Error("useScroll must be used within a ScrollProvider");
   }
   return context;
-}
+};

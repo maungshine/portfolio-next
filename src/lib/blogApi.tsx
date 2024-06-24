@@ -45,31 +45,7 @@ export async function fetchFromWP(
   }
 }
 
-export async function incrementPostViewCount(postId: number): Promise<void> {
-  try {
-    const token = await getJwtToken();
-    const response = await fetch(
-      `https://blog.maungshine.site/wp-json/custom/v1/increment-view-count/${postId}`,
-      {
-        cache: "no-store",
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
 
-    if (!response.ok) {
-      const res = await response.json();
-      console.log(res);
-      throw new Error("Failed to increment view count");
-    }
-  } catch (error) {
-    console.error("Error incrementing view count:", error);
-    throw error;
-  }
-}
 
 export async function getCommentsForPost(postId: number): Promise<Comment[]> {
   try {

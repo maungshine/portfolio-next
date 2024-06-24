@@ -2,7 +2,7 @@
 "use server";
 import { calculateTfIdfSimilarity } from "@/lib/tfidfSimilarity";
 
-import { fetchFromWP, incrementPostViewCount } from "@/lib/blogApi";
+import { fetchFromWP } from "@/lib/blogApi";
 import { Category, Comment, Post, Tag } from "@/types";
 import { getJwtToken } from "@/jwt";
 
@@ -118,6 +118,32 @@ export async function postCommentToPost(
     return response.json();
   } catch (error) {
     console.error("Error posting comment:", error);
+    throw error;
+  }
+}
+
+export async function incrementPostViewCount(postId: number): Promise<void> {
+  try {
+    const token = await getJwtToken();
+    const response = await fetch(
+      `https://blog.maungshine.site/wp-json/custom/v1/increment-view-count/${postId}`,
+      {
+        cache: "no-store",
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      const res = await response.json();
+      console.log(res);
+      throw new Error("Failed to increment view count");
+    }
+  } catch (error) {
+    console.error("Error incrementing view count:", error);
     throw error;
   }
 }

@@ -12,7 +12,7 @@ import { FaEye } from "react-icons/fa";
 import RelatedPosts from "./RelatedPosts";
 import WpContent from "./WpContent";
 import { Session } from "next-auth";
-import { incrementPostViewCount } from "@/lib/blogApi";
+import { incrementPostViewCount } from "@/actions/blog.actions";
 import BlogCardSkeleton from "./BlogCardSkeleton";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());

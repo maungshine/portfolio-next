@@ -1,11 +1,62 @@
 import { Post } from "@/types";
-export const fetcher = (
+export const fetcher = async (
   url: string,
-  cache?: "no-store" | "no-cache" | "force-cache"
-) =>
-  fetch(url, { mode: "no-cors", cache: cache && "default" }).then((res) =>
-    res.json()
-  );
+  cache?: "no-store" | "no-cache" | "force-cache",
+  retries: number = 3, // Number of retries
+  delay: number = 1000 // Initial delay between retries in milliseconds
+): Promise<any> => {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000); // 5 seconds timeout
+
+    try {
+      const response = await fetch(url, {
+        mode: "no-cors",
+        cache: cache || "default",
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+
+      if (!response.ok) {
+        if (![500, 502, 503, 504].includes(response.status)) {
+          throw new Error(
+            `Non-recoverable HTTP error! status: ${response.status}`
+          );
+        }
+        throw new Error(`Recoverable HTTP error! status: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (err) {
+      clearTimeout(timeout);
+
+      // Ensure the error is an instance of Error
+      if (err instanceof Error) {
+        if (err.name === "AbortError") {
+          console.error(`Attempt ${attempt + 1} failed: Request timed out`);
+        } else {
+          console.error(`Attempt ${attempt + 1} failed: ${err.message}`);
+        }
+      } else {
+        console.error(
+          `Attempt ${attempt + 1} failed with an unknown error:`,
+          err
+        );
+      }
+
+      if (attempt < retries - 1) {
+        // Wait before retrying with exponential backoff
+        await new Promise((resolve) =>
+          setTimeout(resolve, delay * Math.pow(2, attempt))
+        );
+      } else {
+        // Throw the error if it's the last attempt
+        throw new Error("Maximum retry attempts reached");
+      }
+    }
+  }
+};
 
 const cachedFetcher = async (
   url: string

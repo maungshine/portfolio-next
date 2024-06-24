@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { tag: string; page: number; perPage: number } }
+  { params }: { params: { tag: string } }
 ) {
-  const page = params.page || "1";
-  const perPage = params.perPage || "10";
+  const page = req.nextUrl.searchParams.get("page") || "1";
+  const perPage = req.nextUrl.searchParams.get("perPage") || "10";
 
   const tagId = await fetchTagIdByName(params.tag);
   if (!tagId) {
@@ -42,7 +42,7 @@ export async function GET(
 
 const fetchTagIdByName = async (tagSlug: string) => {
   try {
-    const response = await axios.get("/api/tags", {
+    const response = await axios.get("https://www.maungshine.site/api/tags", {
       params: { search: tagSlug },
     });
 

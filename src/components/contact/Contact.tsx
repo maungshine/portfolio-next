@@ -40,6 +40,7 @@ const Contact: React.FC = () => {
 
     if (!validated.success) {
       setError({ errors: validated.error.flatten().fieldErrors });
+      setLoading(false);
       return;
     }
     setError(null);

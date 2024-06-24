@@ -50,11 +50,14 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const offset = viewportHeight * 0.1; // Adjust the offset as needed
+
       const sectionIndex = sections.findIndex((section) => {
         const element = document.querySelector(section);
         if (element) {
           const { top } = element.getBoundingClientRect();
-          return top <= 0 && top > -element.clientHeight;
+          return top <= offset && top > -element.clientHeight + offset;
         }
         return false;
       });
@@ -85,9 +88,10 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
         });
 
         const top = element.getBoundingClientRect().top + window.pageYOffset;
+        const offset = window.innerHeight * 0.1; // Adjust the offset as needed
 
         setTimeout(() => {
-          window.scrollTo({ top, behavior: "auto" });
+          window.scrollTo({ top: top - offset, behavior: "auto" });
           setCurrentSection(target);
         }, 1000); // Delay before scrolling to the target section
 
@@ -157,7 +161,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
                           delay: 0.5 + index * 0.05,
                           ease: "easeInOut",
                         }}
-                        className="inline-block w-full"
+                        className="inline-block"
                       >
                         {char}
                       </motion.span>
@@ -178,4 +182,4 @@ export const useScroll = (): ScrollContextProps => {
     throw new Error("useScroll must be used within a ScrollProvider");
   }
   return context;
-};
+}

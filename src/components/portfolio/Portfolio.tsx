@@ -36,7 +36,7 @@ const Portfolio: React.FC = () => {
       img_url:
         theme === "light" ? "/portfolio-light.png" : "/portfolio-dark.png",
       title: "Portfolio Website",
-      description: `This portfolio website is to showcase my skills and projects. I will add a blog later to this portfolio. I used TypeScript, React, Next.js, Framer Motion, Next UI, Tailwind CSS, Prisma ORM, and Postgres, and deployed it to Vercel.`,
+      description: `This portfolio website is to showcase my skills and projects and integrated with dynamic blogging platform. I will keep adding content to my blog too. I used TypeScript, React, Next.js, Framer Motion, Next UI, Tailwind CSS, API integration with headless wordpress RestAPI, caching, Server Side Rendering, Incremental Static Site Generation and deployed it to Vercel.`,
       demo_url: "https://maungshine.site",
       github_url: null,
     },

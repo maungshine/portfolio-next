@@ -14,8 +14,6 @@ interface ScrollContextProps {
   currentSection: string;
   goNext: () => void;
   goPrev: () => void;
-  showScrollIndicator: boolean;
-  setShowScrollIndicator: (visible: boolean) => void;
 }
 
 const ScrollContext = createContext<ScrollContextProps | null>(null);
@@ -45,10 +43,9 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const overlayControls = useAnimation();
-  const [currentSection, setCurrentSection] = useState(sections[0]);
+  const [currentSection, setCurrentSection] = useState("");
   const [upcomingSection, setUpcomingSection] = useState("");
   const [overlayVisible, setOverlayVisible] = useState(false);
-  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,10 +88,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
 
         setTimeout(() => {
           window.scrollTo({ top, behavior: "auto" });
-          setCurrentSection(target); // Update current section immediately after scrolling
-          if (target === "#about") {
-            setShowScrollIndicator(true);
-          }
+          setCurrentSection(target);
         }, 1000); // Delay before scrolling to the target section
 
         setTimeout(() => {
@@ -129,14 +123,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <ScrollContext.Provider
-      value={{
-        scrollTo,
-        currentSection,
-        goNext,
-        goPrev,
-        showScrollIndicator,
-        setShowScrollIndicator,
-      }}
+      value={{ scrollTo, currentSection, goNext, goPrev }}
     >
       <div className="relative overflow-hidden">
         {children}
@@ -150,13 +137,13 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
               transition={{ duration: 1, ease: "easeInOut" }}
               className="fixed top-0 left-0 w-full h-full bg-gradient-to-b from-gray-800 to-gray-900 z-50"
             >
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center">
+              <div className="absolute top-1/2 left-1/2 w-full transform -translate-x-1/2 -translate-y-1/2 text-center">
                 <motion.h1
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-6xl md:text-8xl font-bold text-white"
+                  className="text-6xl md:text-8xl w-full font-bold text-white"
                 >
                   {sectionTitles[sections.indexOf(upcomingSection)]
                     ?.split("")
@@ -170,7 +157,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
                           delay: 0.5 + index * 0.05,
                           ease: "easeInOut",
                         }}
-                        className="inline-block"
+                        className="inline-block w-full"
                       >
                         {char}
                       </motion.span>

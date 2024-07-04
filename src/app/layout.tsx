@@ -22,14 +22,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <SessionProvider session={session}>
-          <Providers>
+        <Providers>
+          <SessionProvider session={session}>
             <div className="min-h-screen flex flex-col">
               {children}
               {/* <Footer /> */}
             </div>
-          </Providers>
-        </SessionProvider>
+          </SessionProvider>
+        </Providers>
       </body>
     </html>
   );

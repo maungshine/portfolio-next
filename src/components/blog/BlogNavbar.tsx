@@ -19,7 +19,7 @@ import { logout, signInWithGoogle } from "@/actions/auth.actions";
 import { useSession } from "next-auth/react";
 
 function BlogNavbar() {
-  const session = useSession()
+  const { data: session } = useSession();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isThemeInitialized, setIsThemeInitialized] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();

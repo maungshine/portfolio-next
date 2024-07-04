@@ -8,6 +8,8 @@ import ReplyModal from "./ReplyModal";
 import { Comment as CommentType } from "@/types";
 import { postCommentToPost } from "@/actions/blog.actions";
 import { Session } from "next-auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/ReactToastify.min.css";
 
 interface Props {
   postId: number;
@@ -68,7 +70,7 @@ const CommentComponent: React.FC<Props> = ({
   const handlePostComment = async (newComment: string) => {
     try {
       if (!newComment.trim()) {
-        alert("Please enter a comment.");
+        toast.warning("Please enter a comment.");
         return;
       }
 
@@ -144,11 +146,13 @@ const CommentComponent: React.FC<Props> = ({
       )}
 
       <ReplyModal
+        session={session}
         isOpen={isOpen}
         onClose={onClose}
         handlePostReply={handlePostReply}
         setReplyTo={setReplyTo}
       />
+      <ToastContainer />
     </div>
   );
 };

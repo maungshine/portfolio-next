@@ -1,12 +1,9 @@
 "use client"; // Error components must be Client Components
 
-import NavBar from "@/components/NavBar";
 import BlogNavbar from "@/components/blog/BlogNavbar";
-import { ScrollProvider } from "@/components/providers/ScrollContextProvider";
 import { Button } from "@nextui-org/react";
 import { useEffect } from "react";
-import { FaExclamation, FaExclamationTriangle } from "react-icons/fa";
-import { useSession } from "next-auth/react";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 export default function Error({
   error,

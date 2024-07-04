@@ -12,9 +12,7 @@ export default function NotFound() {
   return (
     <main className="bg-white dark:bg-[#040309]">
       {pathname.startsWith("/blog") ? (
-        <SessionProvider>
-          <BlogNavbar />
-        </SessionProvider>
+        <BlogNavbar />
       ) : (
         <ScrollProvider>
           <NavBar />

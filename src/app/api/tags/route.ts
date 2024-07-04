@@ -8,7 +8,7 @@ export async function GET() {
     },
   });
   if (!response.ok) {
-    throw new Error("Failed to fetch tags");
+    return NextResponse.json(null);
   }
   const tags = await response.json();
   return NextResponse.json(tags);

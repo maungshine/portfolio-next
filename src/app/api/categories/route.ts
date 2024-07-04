@@ -1,8 +1,6 @@
-import { getJwtToken } from "@/jwt";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const token = await getJwtToken();
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_WP_API_URL}/categories`,
     {
@@ -13,7 +11,7 @@ export async function GET() {
     }
   );
   if (!response.ok) {
-    throw new Error("Failed to fetch categories");
+    return NextResponse.json(null);
   }
   const categories = await response.json();
   return NextResponse.json(categories);

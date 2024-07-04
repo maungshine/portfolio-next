@@ -12,7 +12,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
-          className="w-full md:w-1/2 flex justify-end items-center"
+          className="w-full flex justify-end items-center"
         >
           <ProfileImage />
         </motion.div>

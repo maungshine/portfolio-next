@@ -12,7 +12,7 @@ const font = Inter({ subsets: ["latin"] });
 const IntroText = () => {
   const { scrollTo } = useScroll();
   return (
-    <div className="w-full md:w-1/2 flex flex-col items-center md:items-start mb-8 md:mb-0">
+    <div className="w-full xl:w-1/2 flex flex-col items-center xl:items-start mb-8 xl:mb-0">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ const IntroText = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-4xl uppercase md:text-9xl text-justify bg-gradient-to-r dark:from-white dark:to-btnDarkBlue from-[#040309] to-btnDarkBlue text-transparent bg-clip-text inline-block font-bold mb-4 md:text-left dark:text-heading"
+        className="text-4xl uppercase md:text-6xl xl:text-9xl text-justify bg-gradient-to-r dark:from-white dark:to-btnDarkBlue from-[#040309] to-btnDarkBlue text-transparent bg-clip-text inline-block font-bold mb-4 md:text-left dark:text-heading"
       >
         Maung Shine
       </motion.h1>
@@ -35,7 +35,7 @@ const IntroText = () => {
         transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
         className={cn(
           font.className,
-          "text-lg md:text-xl mb-6 text-center md:text-left max-w-lg dark:text-subheading"
+          "text-lg md:text-xl mb-6 text-center xl:text-left max-w-lg dark:text-subheading"
         )}
       >
         A frontend and full-stack developer passionate about crafting software

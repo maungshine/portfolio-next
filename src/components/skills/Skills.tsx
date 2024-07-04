@@ -47,7 +47,7 @@ const Skills: React.FC = () => {
     <section
       className={`w-full flex-1 flex flex-col items-center justify-center py-16 px-8 relative overflow-hidden dark:bg-[#040309] bg-background-light`}
     >
-      <div className="max-w-6xl mx-auto flex flex-col items-start relative z-10">
+      <div className="max-w-6xl mx-auto flex flex-col w-full items-start relative z-10">
         <h2
           className={`title text-4xl md:text-6xl xl:text-8xl xl:tracking-wide font-semibold text-center mb-4 ${
             isDark
@@ -105,9 +105,7 @@ const Skills: React.FC = () => {
           className="relative rounded-lg overflow-hidden mb-8"
         >
           <div className="gradient-border absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-          <div
-            className={`p-6 shadow-lg dark:bg-[#06050f] bg-accent2-light`}
-          >
+          <div className={`p-6 shadow-lg dark:bg-[#06050f] bg-accent2-light`}>
             <h3
               className={`text-lg md:text-xl font-semibold text-center mb-4 dark:text-[#f6f5f7] text-heading-light`}
             >
@@ -137,9 +135,7 @@ const Skills: React.FC = () => {
           className="relative rounded-lg overflow-hidden"
         >
           <div className="gradient-border absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-          <div
-            className={`p-6 shadow-lg dark:bg-[#06050f] bg-highlight-light`}
-          >
+          <div className={`p-6 shadow-lg dark:bg-[#06050f] bg-highlight-light`}>
             <h3
               className={`text-lg md:text-xl font-semibold text-center mb-4 dark:text-[#f6f5f7] text-heading-light`}
             >

@@ -32,7 +32,7 @@ const ProfileImage = () => {
               alt="profile image"
               className="profile-image rounded-xl min-w-[100px] min-h-[100px] aspect-square rounded-r-full object-cover"
             />
-            <div className="p-4 border border-border-dark dark:border-border-dark dark:bg-[#06050f] rounded-md flex flex-col gap-2 justify-center items-center absolute top-[110%] md:top-[50%] md:bottom-[50%] -bottom-[20%] translate-y-[-50%] -left-[40%] md:-left-[65%] text-xs w-[160px] md:w-[200px] h-[100px] md:h-[200px] z-10 md:text-sm bg-white/30 bg-gradient-to-bl dark:from-ebony-900/90 dark:to-ebony-950/50 backdrop-blur-sm">
+            <div className="p-4 border border-border-dark dark:border-border-dark dark:bg-[#06050f] rounded-md flex flex-col gap-2 justify-center items-center absolute top-[110%] xl:top-[50%] xl:bottom-[50%] -bottom-[20%] translate-y-[-50%] -left-[40%] xl:-left-[65%] text-xs w-[160px] xl:w-[200px] h-[100px] xl:h-[200px] z-10 xl:text-sm bg-white/30 backdrop-blur-sm">
               <p className="text-text-light dark:text-text-dark">
                 <motion.span
                   className="inline-block"

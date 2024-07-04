@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers";
+import { auth } from "@/auth";
+import { SessionProvider } from "next-auth/react";
 
 const font = Montserrat({ subsets: ["latin"] });
 
@@ -16,15 +18,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
     <html lang="en">
       <body className={font.className}>
-        <Providers>
-          <div className="min-h-screen flex flex-col">
-            {children}
-            {/* <Footer /> */}
-          </div>
-        </Providers>
+        <SessionProvider session={session}>
+          <Providers>
+            <div className="min-h-screen flex flex-col">
+              {children}
+              {/* <Footer /> */}
+            </div>
+          </Providers>
+        </SessionProvider>
       </body>
     </html>
   );

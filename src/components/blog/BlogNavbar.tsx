@@ -20,7 +20,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 function BlogNavbar() {
-  const { data: session } = useSession();
+  const { data: session, update } = useSession();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isThemeInitialized, setIsThemeInitialized] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -175,7 +175,8 @@ function BlogNavbar() {
                     <Button
                       onClick={async () => {
                         await logout();
-                        router.refresh();
+                        window.location.reload();
+                        onClose();
                       }}
                       className="w-full rounded-full bg-btnDarkBlue hover:bg-btnDarkBlue/80 text-white font-semibold text-center py-6"
                     >

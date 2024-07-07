@@ -6,5 +6,5 @@ export const signInWithGoogle = async () => {
 };
 
 export const logout = async () => {
-  await signOut({redirect: false});
+  await signOut({ redirect: false });
 };

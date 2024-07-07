@@ -17,6 +17,7 @@ import { SunIcon } from "../icons/SunIcon";
 import { MoonIcon } from "../icons/MoonIcon";
 import { logout, signInWithGoogle } from "@/actions/auth.actions";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function BlogNavbar() {
   const { data: session } = useSession();
@@ -24,6 +25,7 @@ function BlogNavbar() {
   const [isThemeInitialized, setIsThemeInitialized] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { setTheme, theme } = useNextTheme();
+  const router = useRouter();
 
   useEffect(() => {
     // Indicate that the theme is now fully initialized
@@ -173,6 +175,7 @@ function BlogNavbar() {
                     <Button
                       onClick={async () => {
                         await logout();
+                        router.refresh();
                       }}
                       className="w-full rounded-full bg-btnDarkBlue hover:bg-btnDarkBlue/80 text-white font-semibold text-center py-6"
                     >

@@ -1,4 +1,3 @@
-"use client";
 // components/Post.tsx
 import React, { Suspense } from "react";
 import "highlight.js/styles/github-dark.css"; // Replace with your preferred theme
@@ -19,24 +18,21 @@ import BlogCardSkeleton from "./BlogCardSkeleton";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 interface PostProps {
-  slug: string;
   session: Session | null;
+  post: PostType;
 }
 
-const Post: React.FC<PostProps> = async ({ slug, session }) => {
-  const [post, categories, tags] = await Promise.all([
+const Post: React.FC<PostProps> = async ({ session, post }) => {
+  const [initialComments, categories, tags] = await Promise.all([
     fetcher(
-      `https://www.maungshine.site/api/posts/${slug}`
-    ) as Promise<PostType>,
+    `https://www.maungshine.site/api/posts/comments/${post.id}`
+  ) as Promise<CommentType[]>,
     fetcher(`https://www.maungshine.site/api/categories`) as Promise<
       Category[]
     >,
     fetcher(`https://maungshine.site/api/tags`) as Promise<Tag[]>,
   ]);
 
-  const initialComments = (await fetcher(
-    `https://www.maungshine.site/api/posts/comments/${post.id}`
-  )) as CommentType[];
   const postCategories = categories.filter((cat) =>
     post.categories.includes(cat.id)
   );

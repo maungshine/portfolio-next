@@ -107,8 +107,9 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-inter);
   line-height: 1.6;
+  font-size: 18px;
 }
 
 .blog-title {
@@ -138,13 +139,13 @@
 
 .wp-block-heading {
   font-family: var(--font-headingFont);
-  font-size: 2em;
+  font-size: 1.5rem;
   margin-top: 40px;
   margin-bottom: 20px;
 }
 
 .wp-block-heading.has-x-large-font-size {
-  font-size: 2.5em !important; /* Ensure font-size takes precedence */
+  font-size: 2rem !important; /* Ensure font-size takes precedence */
 }
 /* Example styles for code blocks */
 pre {
@@ -162,6 +163,17 @@ pre {
   pre {
     font-size: 14px;
     border: none;
+  }
+
+  .wp-block-heading {
+    font-family: var(--font-headingFont);
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .wp-block-heading.has-x-large-font-size {
+    font-size: 1.5rem !important; /* Ensure font-size takes precedence */
   }
 }
 

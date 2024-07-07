@@ -14,13 +14,15 @@ import WpContent from "./WpContent";
 import { Session } from "next-auth";
 import { incrementPostViewCount } from "@/actions/blog.actions";
 import BlogCardSkeleton from "./BlogCardSkeleton";
-import { Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 
 const headingFont = Poppins({
   variable: "--font-headingFont",
   weight: "600",
   subsets: ["latin"],
 });
+
+const inter = Inter({subsets: ["latin"], variable: "--font-inter"})
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -48,7 +50,7 @@ const Post: React.FC<PostProps> = async ({ session, post }) => {
   await incrementPostViewCount(post.id);
   return (
     <article
-      className={`bg-cardBackground dark:bg-[#06050f] sm:p-8 dark:text-text-dark ${headingFont.variable}`}
+      className={`bg-cardBackground dark:bg-[#06050f] sm:p-8 dark:text-text-dark ${inter.variable} ${headingFont.variable}`}
     >
       {post && (
         <>

@@ -1,4 +1,4 @@
-"client";
+"use client";
 // components/Post.tsx
 import React, { Suspense } from "react";
 import "highlight.js/styles/github-dark.css"; // Replace with your preferred theme

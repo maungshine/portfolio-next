@@ -14,6 +14,13 @@ import WpContent from "./WpContent";
 import { Session } from "next-auth";
 import { incrementPostViewCount } from "@/actions/blog.actions";
 import BlogCardSkeleton from "./BlogCardSkeleton";
+import { Poppins } from "next/font/google";
+
+const headingFont = Poppins({
+  variable: "--font-headingFont",
+  weight: "600",
+  subsets: ["latin"],
+});
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -25,8 +32,8 @@ interface PostProps {
 const Post: React.FC<PostProps> = async ({ session, post }) => {
   const [initialComments, categories, tags] = await Promise.all([
     fetcher(
-    `https://www.maungshine.site/api/posts/comments/${post.id}`
-  ) as Promise<CommentType[]>,
+      `https://www.maungshine.site/api/posts/comments/${post.id}`
+    ) as Promise<CommentType[]>,
     fetcher(`https://www.maungshine.site/api/categories`) as Promise<
       Category[]
     >,
@@ -41,14 +48,18 @@ const Post: React.FC<PostProps> = async ({ session, post }) => {
   await incrementPostViewCount(post.id);
   return (
     <article
-      className={`bg-cardBackground dark:bg-[#06050f] sm:p-8 dark:text-text-dark`}
+      className={`bg-cardBackground dark:bg-[#06050f] sm:p-8 dark:text-text-dark ${headingFont.variable}`}
     >
       {post && (
         <>
-          <h1 className="sm:text-5xl text-2xl p-2 font-bold mb-8 text-center">
+          <h1
+            className={`sm:text-5xl text-2xl p-2 font-bold mb-8 text-center ${headingFont.className}`}
+          >
             {post.title.rendered}
           </h1>
-          <div className="flex items-center mt-4 px-4 max-w-[800px] mx-auto justify-end">
+          <div
+            className={`flex items-center mt-4 px-4 max-w-[800px] mx-auto justify-end`}
+          >
             <FaEye className="mr-2 text-gray-500" />
             <p className="text-gray-500">{post.acf.view_count} views</p>
           </div>

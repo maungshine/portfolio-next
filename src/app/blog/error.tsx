@@ -29,7 +29,7 @@ export default function Error({
           className="bg-btnDarkBlue text-white dark:bg-btnDarkBlue dark:text-white"
           onClick={
             // Attempt to recover by trying to re-render the segment
-            () => reset()
+            () => window.location.reload()
           }
         >
           Try again
